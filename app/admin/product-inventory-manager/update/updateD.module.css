@@ -1,0 +1,185 @@
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    display: flex;
+    max-width: 600px;
+    flex-direction: column;
+    box-shadow: inset 0px 0px 4px 0px rgb(249, 249, 249);
+    border-radius: 10px;
+    ---one: max(1px 0.4vh);
+    color: white;
+}
+
+.container h1 {
+    font-size: larger;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px 5px 10px;
+}
+
+.container>h1 svg {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.container>form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 10px 0px;
+    row-gap: 5px;
+}
+
+.container>form>button {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    background-color: black;
+    border-radius: 10px;
+    border: none;
+    transition: box-shadow 300ms ease;
+}
+
+.container>form input::placeholder {
+    font-size: small;
+}
+
+.container>form>label {
+    margin-top: 15px;
+}
+
+.container>form>input {
+    border-radius: 10px;
+    height: 25px;
+    font-size: large;
+    box-shadow: 1px 1px 3px 0px white;
+}
+
+.container input {
+    padding-left: 5px;
+}
+
+.container form>div {
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+}
+
+.description div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.container .keyValues div {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+    column-gap: 10px;
+    padding-bottom: 5px;
+}
+
+.container .keyValues div span {
+    margin-left: auto;
+}
+
+.container div div textarea {
+    margin-top: 10px;
+    width: 100%;
+    padding: 2px 5px;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: 1px solid gray;
+    border-radius: 5px;
+}
+
+.container div div input {
+    height: 25px;
+    padding: 2px 5px;
+    color: white;
+    border-radius: 5px;
+    background-color: black;
+    outline: 1px solid gray;
+    border: none;
+    margin-top: 10px;
+}
+
+.container div div button {
+    margin-top: 10px;
+    height: 25px;
+    background: black;
+    min-width: 100px;
+    border-radius: 5px;
+    color: white;
+    margin-left: auto;
+    border: none;
+    box-shadow: inset 1px 1px 4px 0px green;
+}
+
+.container form>div>div>span {
+    height: 25px;
+    margin-top: 10px;
+    font-size: 15px;
+    min-width: 100px;
+    box-shadow: inset 1px 1px 4px 0px red;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+}
+
+.keyValues div textarea {
+    max-height: 50px;
+}
+
+.description div textarea {
+    max-height: 100px;
+}
+
+.container div div textarea:focus {
+    outline: 1px solid white;
+}
+
+.container div div input:focus {
+    outline: 1px solid white;
+}
+
+.container>form>.submitBtn {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: medium;
+    color: white;
+
+    box-shadow: inset 1px 1px 30px 0px white;
+}
+
+.container>form>.submitBtn:hover {
+    box-shadow: inset 100px 0px 0px 0px black;
+}
+
+@media screen and (max-width: 650px) {
+
+
+    .container div div {
+        flex-wrap: wrap;
+    }
+
+    .keyValues textarea {
+        order: 1;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container h1 {
+        font-size: large;
+    }
+
+    .container {
+        width: 98%;
+    }
+
+
+}

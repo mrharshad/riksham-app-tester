@@ -1,0 +1,194 @@
+.background {
+  top: 0px;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background: linear-gradient(to right bottom, #749fe4ed, transparent 70%);
+
+  .deleteConfirmation {
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px 5px;
+    margin: 20% auto 0px auto;
+    display: flex;
+    width: fit-content;
+    flex-wrap: wrap;
+    max-width: 300px;
+    justify-content: space-around;
+
+    .name {
+      color: white;
+      width: 100%;
+      font-weight: 600;
+      font-size: large;
+      margin-bottom: 5%;
+    }
+
+    .wait {
+      border-top: 3px solid deepskyblue;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      animation: spin 1.5s linear infinite;
+      margin: auto;
+    }
+  }
+
+  .deleteConfirmation button {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .deleteConfirmation button:nth-child(2) {
+    background: linear-gradient(to right top, #ff4343, white);
+  }
+
+  .deleteConfirmation button:last-child {
+    background: linear-gradient(to right top, #8cc88c, white 80%);
+  }
+}
+
+.mainContainer {
+  background-color: black;
+  min-height: 100svh;
+}
+
+.mainContainer p {
+  color: white;
+}
+
+.mainContainer span {
+  color: white;
+}
+
+.mainContainer label {
+  color: white;
+}
+
+.mainContainer h1 {
+  color: white;
+}
+
+.mainContainer>.heading {
+  font-size: larger;
+  font-weight: 700;
+  padding-top: 20px;
+  margin-left: 10px;
+}
+
+.mainContainer button {
+  cursor: pointer;
+  border: none;
+}
+
+.searchBar {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.searchBar input {
+  font-size: max(1.5vh, 13px);
+  padding-left: 10px;
+  width: 80%;
+  max-width: 250px;
+  height: 30px;
+  outline: none;
+  color: white;
+  background-color: transparent;
+  border-radius: 5px 0px 0px 5px;
+  margin-left: auto;
+  border: none;
+  box-shadow: inset 0px 0px max(0.4vh, 5px) 0px white;
+}
+
+.searchBar input:focus {
+  border: max(0.1vh, 1px) solid skyblue;
+}
+
+.searchBar input::placeholder {
+  color: white;
+}
+
+.searchBar button {
+  height: 30px;
+  width: max(4vh, 40px);
+  background-color: skyblue;
+  border-radius: 0px 5px 5px 0px;
+  margin-right: 1%;
+}
+
+.searchBar button svg {
+  width: 30px;
+}
+
+.showDetails {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.products,
+.showDetails {
+  display: grid;
+  box-shadow: inset 0px 0px 2px 0px white;
+  text-align: center;
+  align-items: center;
+  padding: 3px;
+  column-gap: 5px;
+  border-radius: 5px;
+  grid-template-columns: 1fr 4fr 1fr 2fr;
+
+  .numberOfProduct {
+    color: deepskyblue;
+  }
+
+  .name {
+    padding: 3px 0px 2px 0px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.products {
+  margin-top: 10px;
+
+  .deleteKey {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.products:hover {
+  background-color: #303030c5;
+}
+
+.products>svg {
+  cursor: pointer;
+  width: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20px;
+}
+
+@media only screen and (max-width: 480px) {
+  .searchBar input {
+    width: 50%;
+  }
+
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

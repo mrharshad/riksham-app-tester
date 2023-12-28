@@ -1,0 +1,155 @@
+.label {
+  width: fit-content;
+  font-weight: 500;
+  padding-left: 2px;
+  cursor: pointer;
+  background: linear-gradient(to right, transparent, white);
+  border-radius: 5px;
+}
+
+.label input {
+  width: 40px;
+  color: white;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  padding-left: 3px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.label .quantitySubmit {
+  cursor: pointer;
+  height: 20px;
+  border-radius: 3px;
+  margin-left: 5px;
+  border: none;
+  padding: 2px 3px;
+}
+
+.label select {
+  border: none;
+  outline: none;
+  width: 30px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.label select option {
+  font-size: medium;
+}
+
+.orderPlaceLabel {
+  color: black;
+  background: linear-gradient(to left, #00b9ff, transparent);
+  height: 30px;
+  text-align: center;
+  max-width: 60%;
+  width: 60%;
+  font-size: large;
+  margin-left: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: max-width 300ms ease-in-out;
+}
+
+.orderPlaceLabel::-webkit-scrollbar {
+  display: none;
+}
+
+.orderPlaceBtn:checked ~ .typesOfPay {
+  min-height: 71%;
+}
+
+.orderPlaceBtn:checked ~ .orderPlaceLabel {
+  max-width: 30px;
+  color: red;
+  background: red;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.orderPlaceBtn:checked ~ .orderPlaceLabel::before {
+  content: "\00d7";
+  color: black;
+  font-size: xx-large;
+  display: inline-flex;
+  position: absolute;
+  bottom: -10px;
+  left: 7px;
+}
+
+.typesOfPay {
+  top: 0px;
+  width: 100%;
+  transition: min-height 500ms ease-in-out;
+  max-height: 0px;
+  min-height: 0px;
+  box-shadow: inset 0px 0px 5px 0px white;
+  background-color: black;
+  overflow-y: auto;
+  display: flex;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  flex-direction: column;
+  position: absolute;
+}
+
+.typesOfPay::-webkit-scrollbar {
+  display: none;
+}
+
+.typesOfPay > .typeOfPayLabel {
+  position: sticky;
+  font-weight: 600;
+  padding: 5px;
+  left: 5px;
+  top: 0px;
+  background-color: black;
+}
+
+.typesOfPay > .paymentButtons {
+  margin: 10px auto 10px auto;
+  display: inline-block;
+  width: 250px;
+  padding: 5px;
+  cursor: pointer;
+  border-bottom-right-radius: 50px;
+}
+
+.typesOfPay > button {
+  width: 45%;
+  min-width: 140px;
+  margin: 15px auto 10px auto;
+  min-height: 30px;
+  border: none;
+  background-color: black;
+  background: linear-gradient(to left top, #a1a640, white);
+  outline: none;
+  font-size: medium;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 300ms ease;
+}
+
+.typesOfPay > button:hover {
+  background: linear-gradient(to right bottom, green, white);
+}
+
+.typesOfPay > .fullPayment1 {
+  margin: 20px auto 30px auto;
+  font-size: larger;
+}
+
+.deliveryPackaging1,
+.deliveryPackaging2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 480px) {
+  .orderPlaceLabel:hover {
+    background: linear-gradient(to left bottom, #00b9ff, white);
+  }
+}

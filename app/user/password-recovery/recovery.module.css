@@ -1,0 +1,81 @@
+.section {
+    background: linear-gradient(to top left, black, #202020, #434d53);
+    --one: max(1px, 0.1vh);
+    --hundred: max(100px, 10vh);
+    --fifteen: max(15px, 1.5vh);
+    --twenty: max(20px, 2.1vh);
+}
+
+.container {
+    color: white;
+    height: 300px;
+    display: flex;
+    padding: 10px;
+    max-width: max(400px);
+    width: 95%;
+    margin: 10svh auto 0px auto;
+    border-radius: 1rem;
+    background: linear-gradient(to top left, black, #202020, #434d53);
+    box-shadow: inset var(--one) var(--one) 5px -1px white;
+    flex-direction: column;
+}
+
+.container>h1 {
+    font-size: var(--twenty);
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.password,
+.confirmPassword {
+    margin-bottom: 20px;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+}
+
+.container input {
+    padding-left: 10px;
+    color: white;
+    width: 60%;
+    background: linear-gradient(to left, white, transparent);
+    border: none;
+    margin-left: auto;
+    outline: 1px solid white;
+    border-radius: 5px;
+}
+
+.container button {
+    width: 30%;
+    height: max(35px, 4vh);
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease-in;
+    border-radius: 0.5em;
+    margin: 15px auto 10px auto;
+    background: linear-gradient(to left bottom, #a9b8f3, green);
+}
+
+.container>button:hover {
+    scale: 1.1;
+}
+
+.container>p a {
+    color: #74d3ff;
+}
+
+@media screen and (max-width: 480px) {
+
+    .container>h1 {
+        font-size: medium;
+    }
+
+    .container>p {
+        font-size: small;
+    }
+}

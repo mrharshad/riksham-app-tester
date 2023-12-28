@@ -1,0 +1,184 @@
+.mainContainer {
+  background-color: black;
+  min-height: 100lvh;
+}
+
+.mainContainer p {
+  color: white;
+}
+
+.mainContainer span {
+  color: white;
+}
+
+.mainContainer label {
+  color: white;
+}
+
+
+.mainContainer button {
+  cursor: pointer;
+  border: none;
+}
+
+.searchBar {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.searchBar input {
+  font-size: max(1.5vh, 13px);
+  padding-left: 10px;
+  width: 80%;
+  max-width: 250px;
+  height: 30px;
+  outline: none;
+  color: white;
+  background-color: transparent;
+  border-radius: 5px 0px 0px 5px;
+  margin-left: auto;
+  border: none;
+  box-shadow: inset 0px 0px max(0.4vh, 5px) 0px white;
+}
+
+.searchBar input:focus {
+  border: max(0.1vh, 1px) solid skyblue;
+}
+
+.searchBar input::placeholder {
+  color: white;
+}
+
+.searchBar button {
+  height: 30px;
+  width: max(4vh, 40px);
+  background-color: skyblue;
+  border-radius: 0px 5px 5px 0px;
+  margin-right: 1%;
+}
+
+.searchBar button svg {
+  width: 30px;
+}
+
+.uselessData {
+  padding: 10px;
+  display: flex;
+  margin: 15px auto 15px auto;
+  max-width: 600px;
+  flex-direction: column;
+  box-shadow: inset 1px 1px 6px 0px white;
+  border-radius: 10px;
+
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    font-size: large;
+  }
+
+  .heading svg {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .name {
+    margin-left: auto;
+    margin: 10px 10px 10px auto;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #9198e5;
+  }
+
+  .options {
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px;
+    background: linear-gradient(#414141, #9198e5);
+  }
+
+  .options p {
+    color: black;
+    font-size: large;
+    padding: 3px;
+  }
+
+  .options button {
+    margin-left: 5px;
+    height: 12px;
+    width: 12px;
+    background-color: rgb(184 142 142);
+    border-radius: 2px;
+  }
+
+  .submitBtn {
+    background: linear-gradient(to left top, skyblue, deepskyblue);
+    padding: 5px;
+    width: fit-content;
+    margin: 10px auto 10px auto;
+    border-radius: 5px;
+    font-size: large;
+  }
+}
+
+.showDetails {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.products,
+.showDetails {
+  display: grid;
+  box-shadow: inset 0px 0px 2px 0px white;
+  text-align: center;
+  align-items: center;
+  padding: 3px;
+  column-gap: 5px;
+  border-radius: 5px;
+  grid-template-columns: 1fr 4fr 1fr 2fr;
+
+  .numberOfProduct {
+    color: deepskyblue;
+  }
+
+  .name {
+    padding: 3px 0px 2px 0px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.products {
+  margin-top: 10px;
+
+  .deleteKey {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.products:hover {
+  background-color: #303030c5;
+}
+
+.products>svg {
+  cursor: pointer;
+  width: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .searchBar input {
+    width: 50%;
+  }
+}

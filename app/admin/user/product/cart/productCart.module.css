@@ -1,0 +1,499 @@
+.h3 {
+  text-align: center;
+  margin-bottom: 55svh;
+  margin-top: 30svh;
+  font-size: x-large;
+}
+
+.section {
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
+}
+
+.section > p {
+  font-size: larger;
+  text-align: center;
+  margin-top: 20svh;
+  font-weight: 600;
+}
+
+.cartProducts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  gap: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: flex-start;
+}
+
+.cartPro {
+  transition: scale 300ms ease-in-out;
+  box-shadow: 0 0 5px 0px black;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  height: 320px;
+
+  .ratingReviews {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
+
+    .rating {
+      margin-left: auto;
+      display: flex;
+      position: relative;
+    }
+
+    .rating span {
+      color: gold;
+      overflow-x: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      position: absolute;
+    }
+  }
+
+  .name {
+    color: white;
+    min-height: 18%;
+    text-align: end;
+    max-height: 20%;
+    overflow: hidden;
+  }
+
+  .name span {
+    color: grey;
+    display: inline-block;
+  }
+
+  .imgCover {
+    background-color: white;
+    display: flex;
+    height: 9rem;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .img {
+    margin: auto;
+    height: fit-content;
+    max-width: 98%;
+    max-height: 98%;
+    width: fit-content;
+    border-radius: 5px;
+  }
+
+  .priceDiv {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .priceDiv :nth-child(1) {
+    width: 45%;
+    font-size: 14px;
+  }
+
+  .priceDiv :nth-child(2) {
+    font-size: 14px;
+    margin-left: auto;
+    width: 45%;
+  }
+
+  .currentPrice {
+    font-weight: 700;
+    font-size: x-large;
+  }
+
+  .currentPrice span {
+    color: gray;
+  }
+
+  .mrp {
+    margin: auto 0px auto 5%;
+  }
+
+  .mrp span {
+    text-decoration: line-through;
+  }
+
+  .discount {
+    margin: auto 0px auto auto;
+    background-color: #b2d5dc;
+    border-radius: 2px;
+    padding-left: 2px;
+    font-weight: bold;
+    font-size: small;
+    color: black;
+    padding-right: 2px;
+  }
+
+  .color,
+  .variant {
+    font-weight: 600;
+
+    .span {
+      border-radius: 5px;
+      margin-left: 10px;
+      background: linear-gradient(to left top, transparent, #d9d9d9);
+      font-size: small;
+      padding: 0px 3px 2px 3px;
+    }
+  }
+}
+
+.added {
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.cartPro .buyNow {
+  margin-top: auto;
+  cursor: pointer;
+  height: 25px;
+  width: 80px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 3px 0px white;
+  color: skyblue;
+}
+
+.cartPro:hover {
+  scale: 1.01;
+}
+
+.toggleBtn,
+.seeMore {
+  display: none;
+}
+
+.buyersContainer {
+  width: 99%;
+  border-radius: 10px;
+  flex-direction: column;
+  box-shadow: inset 1px 1px 3px 0px white;
+  display: flex;
+  padding: 15px 10px 20px 10px;
+  column-gap: 15px;
+  row-gap: 15px;
+  margin: 50px auto 0px auto;
+
+  .label {
+    font-style: italic;
+    font-size: larger;
+    margin-top: 10px;
+  }
+}
+
+.buyersContainer > :nth-child(4) {
+  margin-top: 20px;
+}
+
+.buyersContainer > :nth-child(5) {
+  margin-top: 20px;
+}
+
+.buyersContainer > :nth-child(6) {
+  margin-top: 20px;
+}
+
+.buyersContainer > p {
+  font-size: x-large;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.buyersContainer > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-height: 700px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.buyersContainer > div::-webkit-scrollbar {
+  display: none;
+}
+
+.buyersContainer > div > p {
+  font-weight: 600;
+  font-size: large;
+  width: 100%;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.buyersContainer > div div {
+  border: 1px solid;
+  width: 300px;
+  border-radius: 10px;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+
+.buyersContainer > div div .rating {
+  box-shadow: inset 0px 0px 2px 0px black;
+  border-radius: 5px;
+  display: flex;
+  height: 20px;
+  align-items: center;
+}
+
+.buyersContainer > div div .rating span {
+  margin-left: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.buyersContainer > div div .rating span::-webkit-scrollbar {
+  display: none;
+}
+
+.buyersContainer > div div .rating,
+.address {
+  margin-left: auto;
+}
+
+.buyersContainer > div div .address {
+  font-size: small;
+  white-space: nowrap;
+}
+
+.buyersContainer > div div .comment,
+.delivered {
+  grid-column: 1/-1;
+}
+
+.buyersContainer > div div .comment {
+  font-size: small;
+  height: 70px;
+  overflow-y: auto;
+  word-break: break-word;
+  scrollbar-width: none;
+}
+.buyersContainer > div div .comment::-webkit-scrollbar {
+  display: none;
+}
+
+.buyersContainer > div div .comment::before {
+  content: "Opinions: ";
+  font-size: medium;
+  font-weight: 600;
+  color: gray;
+}
+
+@media screen and (max-width: 480px) {
+  .cartProducts {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+  }
+
+  .cartPro {
+    gap: 0px;
+    height: 85%;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 38% 60%;
+    grid-template-rows: 15% 25% 35% 15%;
+    font-size: small;
+
+    height: 180px;
+    width: 98%;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    .buyNow {
+      padding-top: 1%;
+      margin-left: auto;
+      grid-column: 2/3;
+    }
+    .added {
+      font-size: small;
+      margin-top: auto;
+      position: absolute;
+      bottom: 10px;
+      width: 50%;
+      white-space: nowrap;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+
+      grid-column: 2/3;
+    }
+
+    .ratingReviews {
+      grid-column: 2/-1;
+      align-items: center;
+
+      .review {
+        margin-right: auto;
+      }
+
+      .rating {
+        font-size: 15px;
+      }
+
+      .rating span {
+        overflow-y: hidden;
+      }
+    }
+
+    .name {
+      font-size: 14px;
+      grid-row: 2/3;
+      grid-column: 2/3;
+      text-align: start;
+      max-height: none;
+    }
+
+    .name span {
+      font-size: small;
+      margin-left: auto;
+    }
+
+    .imgCover {
+      position: absolute;
+      height: 98%;
+      left: 2px;
+      top: 2px;
+      max-width: 38%;
+      box-shadow: none;
+      border-radius: 5px;
+    }
+
+    .priceDiv p:nth-child(1) {
+      font-size: small;
+    }
+
+    .priceDiv p:nth-child(2) {
+      font-size: small;
+      min-width: fit-content;
+      width: 45%;
+    }
+
+    .priceDiv {
+      margin-bottom: 0px;
+      align-items: center;
+      grid-column: 2/3;
+      grid-row: 3/4;
+
+      .currentPrice {
+        font-size: 140%;
+        text-align: end;
+        margin-right: 10px;
+      }
+
+      .mrp {
+        margin: 0px;
+        font-size: small;
+      }
+
+      .discount {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+      }
+    }
+
+    .color {
+      grid-row: 3/4;
+    }
+
+    .color {
+      grid-row: 4/5;
+    }
+
+    .color,
+    .variant {
+      padding-top: 5%;
+      grid-column: 2/-1;
+      font-size: small;
+    }
+  }
+
+  .toggleBtn:checked ~ .buyersContainer {
+    translate: 0vw;
+  }
+
+  .seeMore {
+    display: block;
+  }
+
+  .buyersContainer > p {
+    font-size: large;
+  }
+
+  .buyersContainer {
+    width: 100%;
+    min-height: 100vh;
+    transition: translate ease-in 500ms;
+    translate: 100vw;
+    background-color: black;
+    top: 0px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: small;
+    box-shadow: inset 0px 0px 6px 0px white;
+
+    .seeMore {
+      display: flex;
+      flex-direction: column;
+      width: 35px;
+      height: 35px;
+      align-items: center;
+      justify-content: space-around;
+      position: absolute;
+      right: 10px;
+    }
+
+    .seeMore span {
+      width: 80%;
+      background-color: red;
+      position: absolute;
+      height: 10%;
+    }
+
+    .seeMore .first {
+      rotate: -50deg;
+    }
+
+    .seeMore .second {
+      rotate: 50deg;
+    }
+
+    .label {
+      margin-right: auto;
+      font-size: medium;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+  }
+
+  .buyersContainer > div > p {
+    font-size: medium;
+  }
+
+  .buyersContainer > div div {
+    width: 100%;
+  }
+
+  .section > .seeMore {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-style: italic;
+    text-decoration: underline;
+    color: skyblue;
+  }
+}

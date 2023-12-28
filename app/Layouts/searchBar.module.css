@@ -1,0 +1,37 @@
+.form {
+  margin-left: auto;
+  width: max(25%, 60vh);
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.input {
+  font-size: max(1.5vh, 13px);
+  padding-left: 10px;
+  height: 75%;
+  width: 80%;
+  outline: none;
+  color: white;
+  background-color: transparent;
+  border-radius: 5px 0px 0px 5px;
+  margin-left: auto;
+  border: none;
+  box-shadow: inset 0px 0px max(0.4vh, 5px) 0px white;
+}
+
+.input:focus {
+  border: max(0.1vh, 1px) solid skyblue;
+}
+
+.input::placeholder {
+  color: white;
+}
+
+.button {
+  height: 75%;
+  width: max(4vh, 40px);
+  border: none;
+  cursor: pointer;
+  border-radius: 0px 5px 5px 0px;
+}

@@ -1,0 +1,227 @@
+.header {
+  background-color: black;
+  display: flex;
+  box-shadow: 0px 1px 3px 0px gray;
+  height: max(5vh, 50px);
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  position: sticky;
+  top: 2px;
+  border-radius: 5px;
+
+  .openProfile,
+  .sideBarInput {
+    display: none;
+  }
+}
+
+.header nav {
+  color: white;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  column-gap: 0.7em;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.header nav::-webkit-scrollbar {
+  display: none;
+}
+
+.header nav img {
+  width: fit-content;
+  height: max(4.5vh, 40px);
+  margin-left: 5px;
+}
+
+.header nav a {
+  position: relative;
+  white-space: nowrap;
+  font-size: max(1.7vh, 15px);
+}
+
+.header nav > a {
+  color: white;
+}
+
+.loggedIn {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.loggedIn a svg {
+  display: none;
+}
+.loggedIn > a:first-child::before {
+  content: "Cart";
+  color: skyblue;
+}
+.loggedIn > a:last-child::before {
+  content: "Orders";
+  color: skyblue;
+}
+
+.header .profileLogo {
+  width: 30px;
+  margin-right: 1rem;
+
+  margin-left: 1rem;
+  padding: 2px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .svg {
+    height: 65%;
+  }
+
+  .span {
+    color: white;
+    font-size: x-small;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .header nav > a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    height: 2px;
+    transition: right 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  .header nav > a:hover::before {
+    right: 0;
+    background-color: #00ceff;
+  }
+
+  .header nav > a:nth-child(1)::before {
+    height: 0px;
+  }
+
+  .header .profileLogo:hover .span {
+    color: #00ceff;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    background: linear-gradient(to right, black, black, #393939 120%);
+    position: fixed;
+    transition: translate 500ms ease-in;
+    z-index: 8;
+    translate: -110%;
+    top: 2px;
+    height: 100vh;
+  }
+
+  .dropBox {
+    transition: translate 500ms ease-in;
+    height: 100vh;
+    width: 100%;
+    translate: 100%;
+    top: 2px;
+    background: linear-gradient(to right, transparent, black);
+    position: fixed;
+  }
+
+  .header nav > a {
+    width: 100%;
+    border-top: 2px solid #393939;
+    padding-left: 5px;
+    height: 6%;
+    display: flex;
+    align-items: center;
+  }
+
+  .header nav .first {
+    border-top: 2px solid white;
+    margin-top: 15px;
+    transition: all 400ms ease-in;
+  }
+
+  .header > .sideBarBtn > span {
+    width: 80%;
+    color: red;
+    height: 6%;
+    background-color: aqua;
+  }
+
+  .loggedIn {
+    top: 15px;
+    column-gap: 15px;
+    position: absolute;
+    right: 2%;
+  }
+  .loggedIn > a:first-child::before {
+    display: none;
+  }
+  .loggedIn > a:last-child::before {
+    display: none;
+  }
+  .loggedIn a svg {
+    display: inline-block;
+  }
+
+  .header > .sideBarBtn {
+    display: flex;
+    z-index: 9;
+    margin-left: 1%;
+    flex-direction: column;
+    width: clamp(45px, 20vw, 55px);
+    min-width: 35px;
+    align-items: center;
+    height: 60%;
+    justify-content: space-around;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .header > .sideBarInput:checked ~ nav {
+    translate: 0;
+  }
+
+  .header > .sideBarInput:checked ~ .dropBox {
+    translate: 0;
+  }
+
+  .header > .sideBarInput:checked ~ .sideBarBtn {
+    translate: calc(100vw - max(45px, 10vw));
+    .first {
+      rotate: -50deg;
+      background-color: red;
+      position: absolute;
+      height: 10%;
+      transition: all 500ms ease-in;
+    }
+
+    .second {
+      opacity: 0;
+    }
+
+    .third {
+      position: absolute;
+      height: 10%;
+      transition: all 500ms ease-in;
+
+      background-color: red;
+      rotate: 50deg;
+    }
+  }
+  .header > .sideBarInput:not(:checked) ~ .sideBarBtn {
+    transition: translate 200ms ease-in;
+    transition-delay: 300ms;
+  }
+}

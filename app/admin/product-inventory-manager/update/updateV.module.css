@@ -1,0 +1,535 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  display: flex;
+  max-width: 600px;
+  flex-direction: column;
+  box-shadow: inset 0px 0px 4px 0px rgb(249, 249, 249);
+  border-radius: 10px;
+  ---one: max(1px 0.4vh);
+  color: white;
+}
+
+.container h1 {
+  font-size: larger;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0px 5px 10px;
+}
+
+.container > h1 svg {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#imgSetContainer {
+  margin-top: 40px;
+}
+
+#aLife {
+  margin-top: 40px;
+}
+
+.container > .colorAndVariantType {
+  margin-bottom: 40px;
+}
+
+.selectContainer,
+.imageSets,
+.variants {
+  .span {
+    margin-right: auto;
+  }
+
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  justify-content: flex-end;
+}
+
+.imageSets,
+.variants {
+  gap: 10px;
+  flex-wrap: wrap;
+  .div {
+    cursor: pointer;
+    padding-bottom: 2px;
+  }
+}
+
+.variants {
+  min-height: 20px;
+}
+.imageSets .div {
+  box-shadow: inset 0px 0px 3px 0px white;
+  padding-left: 4px;
+  padding-right: 4px;
+  min-width: 80px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.variants .div {
+  box-shadow: inset 0px 0px 3px 0px white;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+  min-width: 100px;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.variants .div svg {
+  cursor: pointer;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 10%;
+}
+
+.variants .div svg:nth-child(1) {
+  top: -100%;
+  right: 0px;
+}
+
+#options {
+  row-gap: 30px;
+  justify-content: flex-end;
+}
+
+.variants .div .leftArrow {
+  left: 0px;
+}
+
+.variants .div .rightArrow {
+  right: 0px;
+}
+
+.selectContainer button {
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+  border-radius: 20%;
+  border: none;
+  margin-left: auto;
+}
+
+.colorAndVariantType {
+  display: flex;
+  margin-top: 10px;
+}
+
+.colorAndVariantType input {
+  border-radius: 5px;
+  padding-left: 5px;
+  margin-left: auto;
+  width: 100px;
+  height: 25px;
+}
+
+.container .createColorsDiv,
+.multipleVariantsDiv,
+.editImageSetContainer {
+  overflow: hidden;
+  border-radius: 10px;
+  transition: max-height 1s ease;
+  box-shadow: inset 0px 0px 4px 0px white;
+  transition: all 900ms ease-in;
+
+  .creationType {
+    font-size: large;
+  }
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label input {
+  padding-left: 5px;
+  width: 50%;
+  max-width: 150px;
+  height: 25px;
+  border-radius: 5px;
+}
+
+.label button {
+  visibility: hidden;
+  opacity: 0;
+  width: 80px;
+  border-radius: 5px;
+  transition: opacity linear 500ms;
+}
+
+.container .createColorsDiv,
+.editImageSetContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px 15px 5px;
+  box-shadow: inset 0px 0px 4px 0px white;
+  row-gap: 20px;
+
+  .selectImages {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .selectImages input {
+    width: 90px;
+    margin-left: auto;
+    border-radius: 5px;
+  }
+
+  .selectImages button {
+    margin-left: auto;
+    padding: 2px 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: deepskyblue;
+    background-color: black;
+    box-shadow: inset 1px 1px 4px 0px;
+  }
+}
+
+.createColorsDiv {
+  font-size: 14px;
+
+  .selectImages .inputImages {
+    margin-left: 10px !important;
+  }
+}
+
+.editImageSetContainer {
+  margin-top: 20px;
+  padding: 10px;
+
+  .label {
+    justify-content: flex-start;
+    column-gap: 10px;
+  }
+
+  .label input {
+    margin-left: auto;
+  }
+}
+
+.createdColors {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  gap: 20px;
+
+  .createdColor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+  }
+
+  .createdColor img {
+    border: 1px solid white;
+    margin: 5px auto 10px auto;
+    border-radius: 10px;
+    max-height: 100px;
+    width: fit-content;
+    height: fit-content;
+    height: 100px;
+  }
+
+  .createdColor svg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+
+#editImgSet {
+  .createdColor {
+    position: relative;
+  }
+
+  .leftArrow {
+    bottom: -10px;
+    left: 0px;
+  }
+
+  .rightArrow {
+    bottom: -10px;
+    right: 0px;
+  }
+}
+
+#editImgSet svg {
+  position: absolute;
+}
+
+#editImgSet svg:nth-child(1) {
+  top: 2px;
+  right: 5%;
+}
+
+#createColorSet {
+  .createdColor {
+    position: relative;
+  }
+}
+
+#createColorSet svg {
+  position: absolute;
+  top: 2px;
+  right: 5%;
+}
+
+.container div > .creationType {
+  padding: 5px;
+  margin-left: 2%;
+}
+
+.container .productColorsAndVariants {
+  box-shadow: inset 0em 0em 3px 0em white;
+  border-radius: 5px;
+}
+
+.container .submitBtn {
+  padding: 10px;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 10px;
+  border: none;
+  transition: box-shadow 300ms ease;
+  margin: 15px auto 20px auto;
+  font-weight: 500;
+  font-size: medium;
+  color: white;
+  box-shadow: inset 1px 1px 30px 0px white;
+}
+
+.container .submitBtn:hover {
+  box-shadow: inset 100px 0px 0px 0px black;
+}
+
+.multipleVariantsDiv {
+  display: flex;
+  row-gap: 10px;
+  flex-direction: column;
+  padding: 10px 5px;
+
+  .createdVariants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .variant {
+      display: flex;
+      column-gap: 15px;
+      box-shadow: inset 0px 0px 3px 0px white;
+      align-items: center;
+      border-radius: 5px;
+      position: relative;
+      padding: 5px;
+      width: 100%;
+    }
+
+    .variant > span {
+      align-self: flex-start;
+      min-width: fit-content;
+    }
+
+    .variant div p {
+      margin-right: auto;
+    }
+
+    .variant div span {
+      background-color: gray;
+      border-radius: 2px;
+      display: inline-block;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .variant div {
+      width: 100%;
+      gap: 10px;
+      padding-right: 20px;
+      justify-content: flex-end;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .variant svg {
+      height: 20px;
+      width: 20px;
+      cursor: pointer;
+      position: absolute;
+      right: 3px;
+      top: 5px;
+    }
+  }
+
+  .label button {
+    min-width: fit-content;
+    box-shadow: inset -2px -2px green;
+    color: aqua;
+    background-color: black;
+    padding: 5px;
+  }
+}
+
+.multipleVariantsDiv .createdColor img {
+  border: 1px solid black;
+}
+
+#varDes {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#varDes p {
+  margin-right: auto;
+}
+
+.keyValues div {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  column-gap: 10px;
+  padding-bottom: 5px;
+}
+
+.keyValues div input {
+  height: 25px;
+  padding: 2px 5px;
+  color: white;
+  border-radius: 5px;
+  background-color: black;
+  outline: 1px solid gray;
+  border: none;
+  margin-top: 10px;
+}
+
+.keyValues div textarea {
+  margin-top: 10px;
+  width: 100%;
+  padding: 2px 5px;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: 1px solid gray;
+  border-radius: 5px;
+}
+
+.keyValues div button {
+  margin-top: 10px;
+  height: 25px;
+  background: black;
+  min-width: 100px;
+  border-radius: 5px;
+  color: white;
+  margin-left: auto;
+  border: none;
+  box-shadow: inset 1px 1px 4px 0px green;
+}
+
+.keyValues div span {
+  margin-left: auto;
+}
+
+.keyValues div textarea {
+  max-height: 50px;
+}
+
+.keyValues div span {
+  height: 25px;
+  margin-top: 10px;
+  font-size: 15px;
+  min-width: 100px;
+  box-shadow: inset 1px 1px 4px 0px red;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+}
+
+.container .submitBtn {
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 650px) {
+  .container div div {
+    flex-wrap: wrap;
+  }
+
+  .keyValues textarea {
+    order: 1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container h1 {
+    font-size: large;
+  }
+
+  .editImageSetContainer {
+    font-size: 14px;
+  }
+
+  .label {
+    column-gap: 5px;
+    text-wrap: nowrap;
+  }
+
+  .label button {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .createdColors {
+    justify-content: space-between;
+  }
+
+  .colorAndVariantType input {
+    margin-left: 5px;
+  }
+
+  .multipleVariantsDiv {
+    .createdVariants {
+      .variant {
+        flex-direction: column;
+      }
+
+      .variant > span {
+        margin-right: auto;
+      }
+
+      .variant > div {
+        margin-top: 10px;
+        text-align: start;
+        padding-right: 0px;
+      }
+
+      .variant > div p {
+        margin-right: auto;
+      }
+    }
+  }
+
+  .selectImages {
+    row-gap: 10px;
+  }
+
+  .label input {
+    width: 35%;
+  }
+
+  .colorAndVariantType {
+    justify-content: space-between;
+    font-size: 15px;
+    align-items: flex-end;
+  }
+}

@@ -1,0 +1,369 @@
+.section {
+  background-color: black;
+  color: white;
+}
+
+.section a {
+  color: white;
+}
+
+.updateStatus {
+  font-weight: 600;
+}
+
+.updateStatus span {
+  font-weight: 500;
+  color: white;
+}
+
+.options {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+
+  .status {
+    margin-left: auto;
+    margin-right: 180px;
+  }
+
+  .status a {
+    position: relative;
+    transition: all 300ms ease-in-out;
+    margin-left: 20px;
+    padding-bottom: 5px;
+  }
+
+  .time {
+    transition: all 300ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    overflow-y: hidden;
+    padding: 0px 5px 5px 5px;
+    border-radius: 5px;
+    max-height: 20px;
+    position: absolute;
+    right: 265px;
+    top: 5px;
+    background-color: black;
+  }
+
+  .time p {
+    margin-bottom: 10px;
+    color: #00ceff;
+    text-align: center;
+  }
+
+  .time p:hover {
+    scale: 1.1;
+  }
+
+  .time a {
+    transition: all 300ms ease-in-out;
+    text-align: center;
+    box-shadow: inset 0px 0px 0px 0px white;
+  }
+
+  .time a:hover {
+    box-shadow: inset 120px 0px 0px 0px #f5f5f526;
+  }
+
+  .timeToggles {
+    display: none;
+  }
+
+  .timeToggles:checked + .time {
+    max-height: 300px;
+  }
+}
+
+.options form {
+  margin-left: 10px;
+  margin-right: 20px;
+  height: 25px;
+}
+
+.options form input {
+  background-color: black;
+  color: white;
+  height: 100%;
+  padding-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.options form input::placeholder {
+  color: white;
+}
+
+.options form button {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: medium;
+}
+
+.options form button:hover {
+  scale: 1.1;
+  color: #00ceff;
+}
+
+.orders > p {
+  width: 100%;
+  text-align: center;
+  margin-top: 25svh;
+  font-size: large;
+  grid-column: 1/-1;
+}
+
+.orders {
+  margin: 35px 10px 0px 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 600px));
+  justify-content: center;
+  gap: 15px;
+
+  .order {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    row-gap: 5px;
+    grid-template-rows: 1fr 2fr;
+    height: 240px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    column-gap: 10px;
+    box-shadow: inset 0px 0px 6px 0px white;
+  }
+
+  .order a {
+    color: #a6dfeb;
+    transition: color 200ms ease-in-out;
+  }
+
+  .order > p {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  .order .cancelR {
+    overflow-x: hidden;
+    top: 80px;
+    white-space: nowrap;
+    width: 55%;
+    height: fit-content;
+  }
+  .order .cancelR span {
+    color: red;
+  }
+  .order p span {
+    margin-right: 5px;
+  }
+
+  .order a:hover {
+    color: white;
+  }
+
+  .impInfo {
+    margin-bottom: auto;
+    grid-column: 1/-1;
+    background: linear-gradient(to right, transparent, #494949);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    justify-content: space-between;
+    padding-right: 5px;
+    padding-top: 5px;
+  }
+
+  .impInfo p:nth-child(2n + 1) {
+    width: 70%;
+  }
+
+  .impInfo p:nth-child(2) {
+    margin-left: auto;
+  }
+
+  .impInfo > span::before {
+    content: "Total: ";
+  }
+
+  .impInfo .status span {
+    font-weight: bold;
+    color: coral;
+  }
+  .impInfo > a {
+    margin-left: auto;
+  }
+  .imgLink {
+    height: 100%;
+    max-height: 165px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    min-width: 100px;
+  }
+
+  .imgLink img {
+    border-radius: 5px;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    max-height: 98%;
+    max-width: 98%;
+  }
+
+  .name span {
+    color: rgb(112, 190, 125);
+  }
+
+  .button {
+    text-align: center;
+    border: 1px solid;
+    min-width: 150px;
+    border-radius: 5px;
+    font-size: small;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  .options {
+    .status {
+      margin-right: 10px;
+    }
+
+    .time {
+      top: 60px;
+    }
+  }
+
+  .options form {
+    margin-top: 20px;
+    margin-left: auto;
+    padding-left: 181px;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .options > p {
+    font-size: larger;
+    margin-left: 2rem;
+  }
+
+  .orders > p {
+    font-size: x-large;
+  }
+
+  .time:hover {
+    max-height: 300px;
+  }
+
+  .status a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    height: 2px;
+    transition: right 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  .status a:hover::before {
+    right: 0;
+    background-color: #00ceff;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .options {
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    .status {
+      margin-right: 10px;
+      font-size: small;
+    }
+
+    .time a {
+      font-size: small;
+    }
+
+    .time p {
+      font-size: small;
+    }
+  }
+
+  .options > p {
+    font-size: larger;
+  }
+
+  .options form {
+    margin-top: 30px;
+    padding-left: 0px;
+    width: 70%;
+    margin-right: 0px;
+  }
+
+  .options form input {
+    margin-left: 2rem;
+    width: 60%;
+  }
+
+  .impInfo p {
+    font-size: small;
+    max-width: fit-content;
+  }
+
+  .impInfo a {
+    padding-top: 5px;
+  }
+
+  .impInfo > span {
+    text-align: end;
+  }
+
+  .impInfo > span::before {
+    display: none;
+  }
+
+  .orders {
+    margin-left: auto;
+    margin-right: auto;
+    .order p {
+      font-size: 0.9rem;
+    }
+
+    .order {
+      box-shadow: inset 0px 0px 1px 0px white;
+      grid-template-rows: 1fr 2fr;
+      .name {
+        font-size: small;
+        grid-column: 2/-1;
+      }
+
+      .button {
+        max-width: fit-content;
+        grid-column: 2/-1;
+        margin-left: auto;
+        border: none;
+      }
+
+      .impInfo a {
+        font-size: small;
+        margin-left: auto;
+      }
+      #cancelBtn,
+      #writeReview {
+        min-width: 0px;
+        position: absolute;
+        right: 5px;
+      }
+    }
+  }
+}
