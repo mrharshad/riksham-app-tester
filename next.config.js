@@ -43,8 +43,9 @@ const nextConfig = {
       "mongodb+srv://ecommerce:riksham-app-ecommerce-testing@ecommerce.kbtewug.mongodb.net/?retryWrites=true&w=majority",
 
     REDIS_PORT: 6379,
-    REDIS_HOST: "localhost",
+    REDIS_HOST: "riksham-app-tester.vercel.app",
     REDIS_PASSWORD: "Mrharshadubuntu",
+
     CLOUDINARY_CLIENT_NAME: "ddprxcrmx",
     CLOUDINARY_CLIENT_API: "139431242968882",
     CLOUDINARY_CLIENT_SECRET: "ToqHpH3_VFy8kMXTPmYnDS-5oog",
