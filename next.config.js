@@ -22,8 +22,6 @@ const nextConfig = {
     domains: ["res.cloudinary.com"],
   },
   env: {
-    // PROTOCOL_AND_HOST: "https://riksham.com",
-
     JWT_SECRET_CODE: "harshadkunarsahu170220007771998614",
     JWT_EXPIRE_TIME: "24h",
     PRODUCT_PER_PAGE: 21,
@@ -38,16 +36,7 @@ const nextConfig = {
     SMTP_HOST: "smtp.gmail.com",
     SMTP_PORT: 465,
 
-    // MONGODB_URL:
-    //   "mongodb+srv://riksham:Riksham17022000@cluster0.jnegnqs.mongodb.net/ecommerce?retryWrites=true&w=majority",
-    // CLOUDINARY_CLIENT_NAME: "duxuhsx8x",
-    // CLOUDINARY_CLIENT_API: "444532986928446",
-    // CLOUDINARY_CLIENT_SECRET: "kz_JelubBTh3xR3ZyunnFpL7o6w",
-
-    // __________________________
-    // mrharshad2000  testing gmail se login data base and collection
-
-    PROTOCOL_AND_HOST: "http://riksham-app-tester.vercel.app",
+    PROTOCOL_AND_HOST: "https://riksham-app-tester.vercel.app",
     // PROTOCOL_AND_HOST: "http://localhost:3000",
 
     MONGODB_URL:
