@@ -24,7 +24,7 @@ const UserAccount = async () => {
     redirect("/user/login");
   }
   let user = await client.hGetAll(`user:${_id}`);
-
+  console.log("redis data", user);
   if (!user._id) {
     const validation = cookieStore.get("userInfoRevalidate")?.value;
     user = await fetch(
@@ -50,6 +50,7 @@ const UserAccount = async () => {
     await client.expire(`user:${_id}`, 86400);
 
     user = data;
+    console.log("mongodb data", user);
   }
 
   user.role = eval(user.role);
