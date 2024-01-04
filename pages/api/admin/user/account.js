@@ -1,9 +1,10 @@
 import dbConnect from "@/backend/config/dbConnect";
 import User from "@/backend/models/user";
-import jwt from "jsonwebtoken";
+
 import errors from "@/backend/utils/errorHandler";
 
 export default async function handler(req, res, next) {
+  console.log("call api ");
   const { query, method } = req;
   if (method !== "GET") {
     throw new Error("Please Change Method");
@@ -11,9 +12,9 @@ export default async function handler(req, res, next) {
   try {
     dbConnect();
 
-    const { _id } = jwt.verify(query.token, process.env.JWT_SECRET_CODE);
-
-    const findUser = await User.findOne({ _id }).select("+password");
+    const findUser = await User.findOne({ _id: query.token }).select(
+      "+password"
+    );
     if (!findUser) {
       throw new Error("user not found");
     }

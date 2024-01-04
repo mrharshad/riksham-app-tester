@@ -3,7 +3,7 @@
 const nextConfig = {
   experimental: {
     // appDir: true,
-    serverActions: true,
+    // serverActions: true,
     // serverComponentsExternalPackages: ["mongoose"],
   },
   //  iska istemal humne form action vala funtion new work nhi kar raha tha tab kiya tha
@@ -23,7 +23,7 @@ const nextConfig = {
   },
   env: {
     // PROTOCOL_AND_HOST: "https://riksham.com",
-    PROTOCOL_AND_HOST: "http://localhost:3000",
+
     JWT_SECRET_CODE: "harshadkunarsahu170220007771998614",
     JWT_EXPIRE_TIME: "24h",
     PRODUCT_PER_PAGE: 21,
@@ -38,16 +38,27 @@ const nextConfig = {
     SMTP_HOST: "smtp.gmail.com",
     SMTP_PORT: 465,
 
-    CLOUDINARY_CLIENT_NAME: "duxuhsx8x",
-    CLOUDINARY_CLIENT_API: "444532986928446",
-    CLOUDINARY_CLIENT_SECRET: "kz_JelubBTh3xR3ZyunnFpL7o6w",
+    // MONGODB_URL:
+    //   "mongodb+srv://riksham:Riksham17022000@cluster0.jnegnqs.mongodb.net/ecommerce?retryWrites=true&w=majority",
+    // CLOUDINARY_CLIENT_NAME: "duxuhsx8x",
+    // CLOUDINARY_CLIENT_API: "444532986928446",
+    // CLOUDINARY_CLIENT_SECRET: "kz_JelubBTh3xR3ZyunnFpL7o6w",
 
     // __________________________
     // mrharshad2000  testing gmail se login data base and collection
+
+    // PROTOCOL_AND_HOST: "riksham-app-tester.vercel.app",
     // PROTOCOL_AND_HOST: "http://localhost:3000",
-    // CLOUDINARY_CLIENT_NAME: "ddprxcrmx",
-    // CLOUDINARY_CLIENT_API: "139431242968882",
-    // CLOUDINARY_CLIENT_SECRET: "ToqHpH3_VFy8kMXTPmYnDS-5oog",
+
+    MONGODB_URL:
+      "mongodb+srv://ecommerce:riksham-app-ecommerce-testing@ecommerce.kbtewug.mongodb.net/?retryWrites=true&w=majority",
+    REDIS_PORT: 6379,
+    REDIS_HOST: "localhost",
+    REDIS_PASSWORD: "Mrharshadubuntu",
+    PROTOCOL_AND_HOST: "http://localhost:3000",
+    CLOUDINARY_CLIENT_NAME: "ddprxcrmx",
+    CLOUDINARY_CLIENT_API: "139431242968882",
+    CLOUDINARY_CLIENT_SECRET: "ToqHpH3_VFy8kMXTPmYnDS-5oog",
   },
 };
 

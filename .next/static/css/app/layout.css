@@ -1,0 +1,385 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/Layouts/Header.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+.Header_header__xtXLY {
+  background-color: black;
+  display: flex;
+  box-shadow: 0px 1px 3px 0px gray;
+  height: max(5vh, 50px);
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2px;
+  border-radius: 5px;
+
+  .Header_openProfile__MI13c,
+  .Header_sideBarInput__IjSbp {
+    display: none;
+  }
+}
+
+.Header_header__xtXLY nav {
+  color: white;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  column-gap: 0.7em;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.Header_header__xtXLY nav::-webkit-scrollbar {
+  display: none;
+}
+
+.Header_header__xtXLY nav img {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: max(4.5vh, 40px);
+  margin-left: 5px;
+}
+
+.Header_header__xtXLY nav a {
+  position: relative;
+  white-space: nowrap;
+  font-size: max(1.7vh, 15px);
+}
+
+.Header_header__xtXLY nav > a {
+  color: white;
+}
+
+.Header_loggedIn__hLmLj {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.Header_loggedIn__hLmLj a svg {
+  display: none;
+}
+.Header_loggedIn__hLmLj > a:first-child::before {
+  content: "Cart";
+  color: skyblue;
+}
+.Header_loggedIn__hLmLj > a:last-child::before {
+  content: "Orders";
+  color: skyblue;
+}
+
+.Header_header__xtXLY .Header_profileLogo__Zsas7 {
+  width: 30px;
+  margin-right: 1rem;
+
+  margin-left: 1rem;
+  padding: 2px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .Header_svg__BevWb {
+    height: 65%;
+  }
+
+  .Header_span__mj80b {
+    color: white;
+    font-size: x-small;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .Header_header__xtXLY nav > a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    height: 2px;
+    transition: right 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  .Header_header__xtXLY nav > a:hover::before {
+    right: 0;
+    background-color: #00ceff;
+  }
+
+  .Header_header__xtXLY nav > a:nth-child(1)::before {
+    height: 0px;
+  }
+
+  .Header_header__xtXLY .Header_profileLogo__Zsas7:hover .Header_span__mj80b {
+    color: #00ceff;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Header_header__xtXLY nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    background: linear-gradient(to right, black, black, #393939 120%);
+    position: fixed;
+    transition: translate 500ms ease-in;
+    z-index: 8;
+    translate: -110%;
+    top: 2px;
+    height: 100vh;
+  }
+
+  .Header_dropBox__dXrAM {
+    transition: translate 500ms ease-in;
+    height: 100vh;
+    width: 100%;
+    translate: 100%;
+    top: 2px;
+    background: linear-gradient(to right, transparent, black);
+    position: fixed;
+  }
+
+  .Header_header__xtXLY nav > a {
+    width: 100%;
+    border-top: 2px solid #393939;
+    padding-left: 5px;
+    height: 6%;
+    display: flex;
+    align-items: center;
+  }
+
+  .Header_header__xtXLY nav .Header_first__H_jV0 {
+    border-top: 2px solid white;
+    margin-top: 15px;
+    transition: all 400ms ease-in;
+  }
+
+  .Header_header__xtXLY > .Header_sideBarBtn__UpCUn > span {
+    width: 80%;
+    color: red;
+    height: 6%;
+    background-color: aqua;
+  }
+
+  .Header_loggedIn__hLmLj {
+    top: 15px;
+    column-gap: 15px;
+    position: absolute;
+    right: 2%;
+  }
+  .Header_loggedIn__hLmLj > a:first-child::before {
+    display: none;
+  }
+  .Header_loggedIn__hLmLj > a:last-child::before {
+    display: none;
+  }
+  .Header_loggedIn__hLmLj a svg {
+    display: inline-block;
+  }
+
+  .Header_header__xtXLY > .Header_sideBarBtn__UpCUn {
+    display: flex;
+    z-index: 9;
+    margin-left: 1%;
+    flex-direction: column;
+    width: clamp(45px, 20vw, 55px);
+    min-width: 35px;
+    align-items: center;
+    height: 60%;
+    justify-content: space-around;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .Header_header__xtXLY > .Header_sideBarInput__IjSbp:checked ~ nav {
+    translate: 0;
+  }
+
+  .Header_header__xtXLY > .Header_sideBarInput__IjSbp:checked ~ .Header_dropBox__dXrAM {
+    translate: 0;
+  }
+
+  .Header_header__xtXLY > .Header_sideBarInput__IjSbp:checked ~ .Header_sideBarBtn__UpCUn {
+    translate: calc(100vw - max(45px, 10vw));
+    .Header_first__H_jV0 {
+      rotate: -50deg;
+      background-color: red;
+      position: absolute;
+      height: 10%;
+      transition: all 500ms ease-in;
+    }
+
+    .Header_second__RBCsF {
+      opacity: 0;
+    }
+
+    .Header_third__mxNd_ {
+      position: absolute;
+      height: 10%;
+      transition: all 500ms ease-in;
+
+      background-color: red;
+      rotate: 50deg;
+    }
+  }
+  .Header_header__xtXLY > .Header_sideBarInput__IjSbp:not(:checked) ~ .Header_sideBarBtn__UpCUn {
+    transition: translate 200ms ease-in;
+    transition-delay: 300ms;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./app/globals.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+#productUser {
+  min-height: 100svh;
+  padding-top: 10px;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/Layouts/footer.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+.footer_footer__Rpcyk {
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  box-shadow: 0px 0px 8px 0px black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.footer_footer__Rpcyk div {
+  display: flex;
+  border-radius: 10px;
+  width: 49%;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.footer_footer__Rpcyk>.footer_secondComponent__kSPXk {
+  background: linear-gradient(to right, #597c90, transparent);
+}
+
+.footer_footer__Rpcyk>.footer_secondComponent__kSPXk>p {
+  font-size: larger;
+  text-align: center;
+}
+
+.footer_footer__Rpcyk a {
+  color: white;
+}
+
+.footer_footer__Rpcyk>.footer_firstComponent__jnH_9 {
+  background-color: #1717176b;
+  background: linear-gradient(to left, #597c90, transparent);
+
+}
+
+.footer_footer__Rpcyk a:hover {
+  transition: all 200ms ease-in-out;
+  color: #0093ff;
+  scale: 1.1;
+}
+
+@media only screen and (max-width: 370px) {
+  .footer_footer__Rpcyk>.footer_secondComponent__kSPXk {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .footer_footer__Rpcyk>.footer_firstComponent__jnH_9 {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .footer_footer__Rpcyk {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer_footer__Rpcyk>.footer_secondComponent__kSPXk {
+    width: 90%;
+    height: 100px;
+  }
+
+  .footer_footer__Rpcyk>.footer_firstComponent__jnH_9 {
+    width: 90%;
+    padding: 5px;
+  }
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/Layouts/searchBar.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.searchBar_form__2FP4j {
+  margin-left: auto;
+  width: max(25%, 60vh);
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.searchBar_input__QGPNn {
+  font-size: max(1.5vh, 13px);
+  padding-left: 10px;
+  height: 75%;
+  width: 80%;
+  outline: none;
+  color: white;
+  background-color: transparent;
+  border-radius: 5px 0px 0px 5px;
+  margin-left: auto;
+  border: none;
+  box-shadow: inset 0px 0px max(0.4vh, 5px) 0px white;
+}
+
+.searchBar_input__QGPNn:focus {
+  border: max(0.1vh, 1px) solid skyblue;
+}
+
+.searchBar_input__QGPNn::placeholder {
+  color: white;
+}
+
+.searchBar_button___LVKt {
+  height: 75%;
+  width: max(4vh, 40px);
+  border: none;
+  cursor: pointer;
+  border-radius: 0px 5px 5px 0px;
+}
+

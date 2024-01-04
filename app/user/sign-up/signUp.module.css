@@ -20,24 +20,24 @@
   flex-direction: column;
 }
 
-.container>h1 {
+.container > h1 {
   font-size: var(--twenty);
   margin: 1em 0px 0.7em 0.7em;
 }
 
-.container>form {
+.container > form {
   display: flex;
   margin: 0.6em;
   row-gap: 0.4em;
   flex-direction: column;
 }
 
-.container>form label {
+.container > form label {
   margin-top: 1em;
   font-size: var(--fifteen);
 }
 
-.container>form input {
+.container > form input {
   padding-left: 0.5em;
   border-radius: 1em;
   height: max(25px, 2.6vh);
@@ -45,16 +45,16 @@
   transition: background-color 400ms ease-in-out;
 }
 
-.container>form input:focus {
+.container > form input:focus {
   background-color: #cee9f8;
 }
 
-.container>form input::placeholder {
+.container > form input::placeholder {
   font-size: 0.8em;
   padding-left: 0.5em;
 }
 
-.container>form>div {
+.container > form > div {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -76,16 +76,16 @@
 }
 
 .email label {
-  margin-bottom: .3em;
+  margin-bottom: 0.3em;
 }
 
 .email span {
   right: 5px;
   bottom: 1px;
+
   color: black;
   position: absolute;
 }
-
 
 .personalInfo p {
   font-size: var(--fifteen);
@@ -104,25 +104,24 @@
   margin-left: 10px;
 }
 
-
-.personalInfo>input {
+.personalInfo > input {
   margin-left: auto;
 }
 
-.personalInfo>input[type="date"] {
+.personalInfo > input[type="date"] {
   border-radius: 5px;
   width: 135px;
   margin-top: 1rem;
 }
 
-.personalInfo>input[type="date"]:focus {
+.personalInfo > input[type="date"]:focus {
   background-color: white;
 }
 
-.personalInfo>span {
+.personalInfo > span {
   position: absolute;
   background-color: white;
-  right: 30px;
+  right: 25px;
   bottom: 3px;
   height: 48%;
   display: inline-block;
@@ -131,26 +130,26 @@
   text-align: center;
 }
 
-.container>form>.stateContainer>label {
+.container > form > .stateContainer > label {
   width: 45%;
   margin-bottom: 0.3em;
   margin-top: 2em;
 }
 
-.container>form>.stateContainer>input {
+.container > form > .stateContainer > input {
   width: 45%;
 }
 
-.container>form>.stateContainer>select {
+.container > form > .stateContainer > select {
   width: 45%;
   padding-left: 0.5em;
-  border-radius: .5em;
+  border-radius: 0.5em;
   height: max(25px, 2.6vh);
   font-size: var(--fifteen);
   transition: background-color 400ms ease-in-out;
 }
 
-.container>form>button {
+.container > form > button {
   margin: 15px auto var(--twenty) auto;
   width: 30%;
   height: max(40px, 4vh);
@@ -161,7 +160,7 @@
   border-radius: 0.5em;
 }
 
-.container>form>button:hover {
+.container > form > button:hover {
   scale: 1.1;
 }
 
@@ -169,28 +168,27 @@
   flex-direction: column;
 }
 
-.container .firstStep>button {
+.container .firstStep > button {
   background: linear-gradient(to right top, #d2e5ff, #64cfdd);
 }
 
-
-.container .firstStep>p {
+.container .firstStep > p {
   margin-bottom: 1.3em;
   font-size: var(--fifteen);
 }
 
-.container .firstStep>p a {
+.container .firstStep > p a {
   color: #74d3ff;
 }
-
-
-
-
+@media screen and (min-width: 481px) {
+  .email span {
+    font-size: large;
+  }
+}
 @media screen and (max-width: 480px) {
   .container {
     width: 98%;
   }
-
 
   .secondStep {
     .identity {
@@ -199,11 +197,10 @@
 
     .resend {
       font-size: small;
-
     }
   }
 
-  .secondStep>p:nth-child(1) {
+  .secondStep > p:nth-child(1) {
     font-size: medium;
   }
 }
@@ -215,7 +212,5 @@
 
   from {
     translate: 95%;
-
   }
-
 }

@@ -4,6 +4,9 @@ import style from "./accounts.module.css";
 import Link from "next/link";
 import LogOutBtn from "./logOutBtn";
 import { redirect } from "next/navigation";
+import client from "@/backend/config/redisConnect";
+import jwt from "jsonwebtoken";
+
 export const metadata = {
   title: "User Accounts",
 };
@@ -14,20 +17,43 @@ const UserAccount = async () => {
   if (!value) {
     redirect("/user/sign-up");
   }
-  const validation = cookieStore.get("userInfoRevalidate")?.value;
-  const user = await fetch(
-    `${
-      process.env.PROTOCOL_AND_HOST
-    }/api/admin/user/account?token=${value}&validation=${
-      validation || "newData"
-    }`,
-    { cache: "no-cache" }
-    // { next: { revalidate: 21600 } }
-  );
-  const { success, message, data } = await user.json();
-  if (message) {
+
+  const { _id } = jwt.verify(value, process.env.JWT_SECRET_CODE);
+
+  if (!_id) {
     redirect("/user/login");
   }
+  let user = await client.hGetAll(`user:${_id}`);
+
+  if (!user._id) {
+    const validation = cookieStore.get("userInfoRevalidate")?.value;
+    user = await fetch(
+      `${
+        process.env.PROTOCOL_AND_HOST
+      }/api/admin/user/account?token=${_id}&validation=${
+        validation || "newData"
+      }`,
+      { cache: "no-cache" }
+      // { next: { revalidate: 21600 } }
+    );
+    const { success, message, data } = await user.json();
+
+    delete data.__v;
+    data.role = JSON.stringify(data.role);
+    data.cartPro = JSON.stringify(data.cartPro);
+    data.sugPC = JSON.stringify(data.sugPC);
+    data.newOrder = JSON.stringify(data.newOrder);
+    data.canceled = JSON.stringify(data.canceled);
+    data.reOSP = JSON.stringify(data.reOSP);
+
+    await client.hSet(`user:${_id}`, data);
+    await client.expire(`user:${_id}`, 86400);
+
+    user = data;
+  }
+
+  user.role = eval(user.role);
+
   const {
     role,
     fName,
@@ -43,7 +69,7 @@ const UserAccount = async () => {
     bDate,
     bMonth,
     bYear,
-  } = data;
+  } = user;
 
   return (
     <Fragment>
