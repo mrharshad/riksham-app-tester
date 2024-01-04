@@ -47,11 +47,12 @@ const nextConfig = {
     // __________________________
     // mrharshad2000  testing gmail se login data base and collection
 
-    PROTOCOL_AND_HOST: "riksham-app-tester.vercel.app",
+    PROTOCOL_AND_HOST: "http://riksham-app-tester.vercel.app",
     // PROTOCOL_AND_HOST: "http://localhost:3000",
 
     MONGODB_URL:
       "mongodb+srv://ecommerce:riksham-app-ecommerce-testing@ecommerce.kbtewug.mongodb.net/?retryWrites=true&w=majority",
+
     REDIS_PORT: 6379,
     REDIS_HOST: "localhost",
     REDIS_PASSWORD: "Mrharshadubuntu",
