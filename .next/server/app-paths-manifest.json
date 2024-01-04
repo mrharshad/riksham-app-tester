@@ -1,4 +1,7 @@
 {
-  "/admin/user/account/page": "app/admin/user/account/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/user/sign-up/page": "app/user/sign-up/page.js",
+  "/page": "app/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/user/login/page": "app/user/login/page.js",
+  "/admin/user/account/page": "app/admin/user/account/page.js"
 }

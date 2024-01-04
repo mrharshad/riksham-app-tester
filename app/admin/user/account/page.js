@@ -23,9 +23,9 @@ const UserAccount = async () => {
   if (!_id) {
     redirect("/user/login");
   }
-  let user = await client.hGetAll(`user:${_id}`);
-  console.log("redis data", user);
-  if (!user._id) {
+  let user = await client.hgetall(`user:${_id}`);
+  console.log("redis data", user?._id);
+  if (!user) {
     const validation = cookieStore.get("userInfoRevalidate")?.value;
     user = await fetch(
       `${
@@ -46,12 +46,13 @@ const UserAccount = async () => {
     data.canceled = JSON.stringify(data.canceled);
     data.reOSP = JSON.stringify(data.reOSP);
 
-    await client.hSet(`user:${_id}`, data);
+    await client.hset(`user:${_id}`, data);
     await client.expire(`user:${_id}`, 86400);
 
     user = data;
-    console.log("mongodb data", user);
   }
+
+  console.log("mongodb data", user._id);
 
   user.role = eval(user.role);
 

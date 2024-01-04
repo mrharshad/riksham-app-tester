@@ -42,9 +42,13 @@ const nextConfig = {
     MONGODB_URL:
       "mongodb+srv://ecommerce:riksham-app-ecommerce-testing@ecommerce.kbtewug.mongodb.net/?retryWrites=true&w=majority",
 
-    REDIS_PORT: 6379,
-    REDIS_HOST: "riksham-app-tester.vercel.app",
-    REDIS_PASSWORD: "Mrharshadubuntu",
+    KV_URL:
+      "redis://default:151dc908d607475eb703fe51f19573fc@emerging-moth-32859.kv.vercel-storage.com:32859",
+    KV_REST_API_URL: "https://emerging-moth-32859.kv.vercel-storage.com",
+    KV_REST_API_TOKEN:
+      "AYBbASQgZjEyNDFlNmUtMjZjZC00MGVkLWJmNDUtMmUxZmQ3ZTJhYmIzMTUxZGM5MDhkNjA3NDc1ZWI3MDNmZTUxZjE5NTczZmM=",
+    KV_REST_API_READ_ONLY_TOKEN:
+      "AoBbASQgZjEyNDFlNmUtMjZjZC00MGVkLWJmNDUtMmUxZmQ3ZTJhYmIzLxjp9TLa6BgRY4Uu9PGGjXyUelE5p4Qjr6qotzwEXNY=",
 
     CLOUDINARY_CLIENT_NAME: "ddprxcrmx",
     CLOUDINARY_CLIENT_API: "139431242968882",
