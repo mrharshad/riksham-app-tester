@@ -45,7 +45,6 @@ const nextConfig = {
     REDIS_PORT: 6379,
     REDIS_HOST: "localhost",
     REDIS_PASSWORD: "Mrharshadubuntu",
-    PROTOCOL_AND_HOST: "http://localhost:3000",
     CLOUDINARY_CLIENT_NAME: "ddprxcrmx",
     CLOUDINARY_CLIENT_API: "139431242968882",
     CLOUDINARY_CLIENT_SECRET: "ToqHpH3_VFy8kMXTPmYnDS-5oog",
