@@ -29,9 +29,9 @@ const Searchbar = () => {
         cache: "no-cache",
       });
     });
-    return () => {
-      socket.disconnect();
-    };
+    // return () => {
+    //   socket.disconnect();
+    // };
   }, []);
   console.log(socket);
   const checkWebSocket = () => {
