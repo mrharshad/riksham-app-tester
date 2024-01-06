@@ -1,10 +1,44 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import style from "./searchBar.module.css";
+import { io } from "socket.io-client";
 const Searchbar = () => {
   const [keyword, setKeyword] = useState("");
   const router = useRouter();
+
+  const [userData, setUserData] = useState({});
+  const [key, setKey] = useState("no");
+
+  // const socket = io("http://localhost:3000/api/socket");
+  let socket = "";
+  useEffect(() => {
+    socket = io(`:${3000 + 1}`, {
+      path: "/api/socket",
+      addTrailingSlash: false,
+    });
+    socket.on("connect", () => {
+      console.log("Connected", socket.id);
+    });
+    socket.on("disconnect", () => {
+      console.log("Disconnected");
+    });
+    socket.on("connect_error", async (err) => {
+      console.log(`connect_error due to ${err.message}`);
+      await fetch("/api/socket");
+    });
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+  console.log(socket);
+  const checkWebSocket = () => {
+    const event = socket.emit("userData", 2, (response) => {
+      console.log(response);
+      setUserData(response);
+    });
+    console.log("event", event);
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -15,24 +49,52 @@ const Searchbar = () => {
     }
   };
   return (
-    <form className={style.form} id="form" onSubmit={submitHandler}>
-      <input
-        className={style.input}
-        id="input"
-        onChange={(e) => setKeyword(e.target.value)}
-        type="text"
-        placeholder="Search products..."
-      />
-      <button className={style.button} type="submit">
-        <svg className={style.svg} viewBox="0 0 24 24">
-          <path fill="none" d="M0 0h24v24H0V0z"></path>
-          <path
-            d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-            fil="#000000"
-          ></path>
-        </svg>
+    <>
+      <p
+        style={{
+          color: "black",
+          fontSize: "18px",
+          position: "absolute",
+          top: "200px",
+          left: "500px",
+          minWidth: "100px",
+        }}
+      >
+        key: {key}
+      </p>
+      <p
+        style={{
+          color: "black",
+          fontSize: "18px",
+          position: "absolute",
+          top: "300px",
+          left: "500px",
+        }}
+      >
+        name : {userData.fName} {userData.lName}
+      </p>
+      <button type="button" onClick={checkWebSocket}>
+        Check WebSocket
       </button>
-    </form>
+      <form className={style.form} id="form" onSubmit={submitHandler}>
+        <input
+          className={style.input}
+          id="input"
+          onChange={(e) => setKeyword(e.target.value)}
+          type="text"
+          placeholder="Search products..."
+        />
+        <button className={style.button} type="submit">
+          <svg className={style.svg} viewBox="0 0 24 24">
+            <path fill="none" d="M0 0h24v24H0V0z"></path>
+            <path
+              d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+              fil="#000000"
+            ></path>
+          </svg>
+        </button>
+      </form>
+    </>
   );
 };
 

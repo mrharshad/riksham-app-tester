@@ -23,38 +23,25 @@ const UserAccount = async () => {
   if (!_id) {
     redirect("/user/login");
   }
+
   let user = await client.hgetall(`user:${_id}`);
-  console.log("redis data", user?._id);
   if (!user) {
     const validation = cookieStore.get("userInfoRevalidate")?.value;
     user = await fetch(
-      `${
-        process.env.PROTOCOL_AND_HOST
-      }/api/admin/user/account?token=${_id}&validation=${
-        validation || "newData"
-      }`,
+      `${process.env.PROTOCOL_AND_HOST}/api/admin/user/account?token=${_id}
+      `,
       { cache: "no-cache" }
       // { next: { revalidate: 21600 } }
     );
     const { success, message, data } = await user.json();
 
     delete data.__v;
-    data.role = JSON.stringify(data.role);
-    data.cartPro = JSON.stringify(data.cartPro);
-    data.sugPC = JSON.stringify(data.sugPC);
-    data.newOrder = JSON.stringify(data.newOrder);
-    data.canceled = JSON.stringify(data.canceled);
-    data.reOSP = JSON.stringify(data.reOSP);
 
     await client.hset(`user:${_id}`, data);
     await client.expire(`user:${_id}`, 86400);
 
     user = data;
   }
-
-  console.log("mongodb data", user._id);
-
-  user.role = eval(user.role);
 
   const {
     role,

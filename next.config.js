@@ -45,6 +45,7 @@ const nextConfig = {
     KV_URL:
       "redis://default:151dc908d607475eb703fe51f19573fc@emerging-moth-32859.kv.vercel-storage.com:32859",
     KV_REST_API_URL: "https://emerging-moth-32859.kv.vercel-storage.com",
+
     KV_REST_API_TOKEN:
       "AYBbASQgZjEyNDFlNmUtMjZjZC00MGVkLWJmNDUtMmUxZmQ3ZTJhYmIzMTUxZGM5MDhkNjA3NDc1ZWI3MDNmZTUxZjE5NTczZmM=",
     KV_REST_API_READ_ONLY_TOKEN:

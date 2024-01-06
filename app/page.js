@@ -11,8 +11,8 @@ export default async function Home({ searchParams }) {
     `${
       process.env.PROTOCOL_AND_HOST
     }/api/product/products?${queryString.stringify({ keyword: k, page })}`,
-    { cache: "no-cache" }
-    // { next: { revalidate: 21600 } }
+    // { cache: "no-cache" }
+    { next: { revalidate: 21600 } }
   );
   const { products } = await request.json();
   const totalProducts = products?.length;

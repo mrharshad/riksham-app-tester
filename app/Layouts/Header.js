@@ -2,7 +2,8 @@ import style from "./Header.module.css";
 import Searchbar from "./searchbar";
 
 const Header = ({ Link, Image, userInfo }) => {
-  const { fName, pinCode } = userInfo || {};
+  const { fName = "Profile", pinCode } = userInfo || {};
+
   return (
     <header className={style.header} id="header">
       <input
@@ -79,10 +80,7 @@ const Header = ({ Link, Image, userInfo }) => {
             transform="translate(4 2)"
           ></path>
         </svg>
-        <span className={style.span}>
-          {" "}
-          {(fName || "Profile").substring(0, 8)}
-        </span>
+        <span className={style.span}> {fName.substring(0, 8)}</span>
       </Link>
     </header>
   );

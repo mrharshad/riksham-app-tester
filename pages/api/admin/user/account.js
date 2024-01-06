@@ -4,7 +4,6 @@ import User from "@/backend/models/user";
 import errors from "@/backend/utils/errorHandler";
 
 export default async function handler(req, res, next) {
-  console.log("call api ");
   const { query, method } = req;
   if (method !== "GET") {
     throw new Error("Please Change Method");
@@ -15,6 +14,7 @@ export default async function handler(req, res, next) {
     const findUser = await User.findOne({ _id: query.token }).select(
       "+password"
     );
+
     if (!findUser) {
       throw new Error("user not found");
     }
