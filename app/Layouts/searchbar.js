@@ -26,12 +26,14 @@ const Searchbar = () => {
     socket.on("connect_error", async (err) => {
       console.log(`connect_error due to ${err.message}`);
       await fetch(`${process.env.PROTOCOL_AND_HOST}/api/socket`, {
-        cache: "no-cache",
+        method: "POST",
+        body: { key: "value" },
+        headers: { "Content-Type": "application/json" },
       });
     });
-    // return () => {
-    //   socket.disconnect();
-    // };
+    return () => {
+      socket.disconnect();
+    };
   }, []);
   console.log(socket);
   const checkWebSocket = () => {
