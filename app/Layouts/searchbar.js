@@ -25,7 +25,7 @@ const Searchbar = () => {
     });
     socket.on("connect_error", async (err) => {
       console.log(`connect_error due to ${err.message}`);
-      await fetch("/api/socket");
+      await fetch(`${process.env.PROTOCOL_AND_HOST}/api/socket`);
     });
     return () => {
       socket.disconnect();
