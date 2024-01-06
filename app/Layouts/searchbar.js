@@ -13,7 +13,7 @@ const Searchbar = () => {
   // const socket = io("http://localhost:3000/api/socket");
   let socket = "";
   useEffect(() => {
-    socket = io(`:${3000 + 1}`, {
+    socket = io(`:${5000}`, {
       path: "/api/socket",
       addTrailingSlash: false,
     });

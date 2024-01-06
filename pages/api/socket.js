@@ -6,17 +6,17 @@ export const config = {
     bodyParser: false,
   },
 };
-const PORT = 3000;
+const PORT = 5000;
 
 export default async function handler(req, res, next) {
   console.log("req", req);
-  console.log("Starting Socket.IO server on port:", PORT + 1);
+  console.log("Starting Socket.IO server on port:", PORT);
   const httpServer = createServer();
   const io = new Server(httpServer, {
     path: "/api/socket",
     addTrailingSlash: false,
     cors: { origin: "*", methods: ["POST", "PUT", "GET", "DELETE"] },
-  }).listen(PORT + 1);
+  }).listen(PORT);
 
   io.on("connect", (socket) => {
     socket.on("userData", async (data, callback) => {
@@ -47,6 +47,6 @@ export default async function handler(req, res, next) {
   res.status(201).json({
     success: true,
     message: "Socket is started",
-    socket: `:${PORT + 1}`,
+    socket: `:${PORT}`,
   });
 }
