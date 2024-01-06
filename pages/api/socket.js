@@ -15,7 +15,7 @@ export default async function handler(req, res, next) {
   const io = new Server(httpServer, {
     path: "/api/socket",
     addTrailingSlash: false,
-    cors: { origin: "*", methods: ["POST", "PUT", "GET", "DELETE"] },
+    cors: { origin: "*", methods: ["POST", "GET"] },
   }).listen(PORT);
 
   io.on("connect", (socket) => {
