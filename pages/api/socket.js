@@ -22,18 +22,9 @@ export default async function handler(req, res, next) {
     socket.on("userData", async (data, callback) => {
       let user = await client.hgetall(`user:${data}`);
       if (!user) {
-        user = await fetch(
-          `${process.env.PROTOCOL_AND_HOST}/api/admin/user/account?token=${data}
-      `,
-          { cache: "no-cache" }
-          // { next: { revalidate: 21600 } }
-        );
-        const { success, message, data: result } = await user.json();
-
-        delete result.__v;
-
-        await client.hset(`user:${data}`, result);
-        await client.expire(`user:${data}`, 86400);
+        user = { fName: "harshad", lName: "sahu" };
+        await client.hset(`user:${data}`, user);
+        await client.expire(`user:${data}`, 30);
 
         user = result;
       }
