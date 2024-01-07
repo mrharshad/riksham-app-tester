@@ -15,7 +15,7 @@ const Searchbar = () => {
 
   console.log("socket", socket);
   useEffect(() => {
-    const socketConnection = io(`:${5000}`, {
+    const socketConnection = io(`:${4000}`, {
       path: "/api/socket",
       addTrailingSlash: false,
     });
