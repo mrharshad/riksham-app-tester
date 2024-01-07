@@ -49,3 +49,6 @@ export async function GET(req) {
 }
 
 // npm run dev
+// git add .
+// git commit -m "new"
+// git push riksham-app-tester master
