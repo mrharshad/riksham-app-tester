@@ -30,9 +30,7 @@ const Searchbar = () => {
       await fetch(`/api/socket`);
     });
     setSocket(socketConnection);
-    return () => {
-      socketConnection.disconnect();
-    };
+    return socketConnection;
   }, []);
   console.log(socket);
 

@@ -47,8 +47,8 @@ const nextConfig = {
     SMTP_HOST: "smtp.gmail.com",
     SMTP_PORT: 465,
 
-    PROTOCOL_AND_HOST: "https://riksham-app-tester.vercel.app",
-    // PROTOCOL_AND_HOST: "http://localhost:3000",
+    // PROTOCOL_AND_HOST: "https://riksham-app-tester.vercel.app",
+    PROTOCOL_AND_HOST: "http://localhost:3000",
 
     MONGODB_URL:
       "mongodb+srv://ecommerce:riksham-app-ecommerce-testing@ecommerce.kbtewug.mongodb.net/?retryWrites=true&w=majority",

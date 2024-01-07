@@ -1,11 +1,11 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
 import client from "@/backend/config/redisConnect";
-// export const config = {
-//   api: {
-//     bodyParser: false,
-//   },
-// };
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 const PORT = 4000;
 
 export async function GET(req) {
