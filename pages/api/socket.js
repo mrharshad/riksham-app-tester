@@ -9,7 +9,6 @@ import client from "@/backend/config/redisConnect";
 const PORT = 5000;
 
 export default async function handler(req, res, next) {
-  console.log("req", req);
   console.log("Starting Socket.IO server on port:", PORT);
   const httpServer = createServer();
   const io = new Server(httpServer, {
@@ -19,7 +18,9 @@ export default async function handler(req, res, next) {
   }).listen(PORT);
 
   io.on("connect", (socket) => {
+    console.log("socket", socket.id);
     socket.on("userData", async (data, callback) => {
+      console.log("userData event run");
       let user = await client.hgetall(`user:${data}`);
       if (!user) {
         user = { fName: "harshad", lName: "sahu" };

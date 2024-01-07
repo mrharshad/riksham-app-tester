@@ -1,5 +1,6 @@
 /**
- *  @type {import('next').NextConfig} */
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   experimental: {
     // appDir: true,
@@ -18,8 +19,18 @@ const nextConfig = {
   //     { protocol: "https", hostname: "*.google.com" },
   //   ],
   // },
+  // images: {
+  //   domains: ["res.cloudinary.com"],
+  // },
   images: {
-    domains: ["res.cloudinary.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        // port: "",
+        // pathname: "/",
+      },
+    ],
   },
   env: {
     JWT_SECRET_CODE: "harshadkunarsahu170220007771998614",

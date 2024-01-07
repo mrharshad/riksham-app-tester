@@ -9,33 +9,33 @@ const Searchbar = () => {
 
   const [userData, setUserData] = useState({});
   const [key, setKey] = useState("no");
+  const [socket, setSocket] = useState(false);
 
   // const socket = io("http://localhost:3000/api/socket");
-  let socket = "";
+
+  console.log("socket", socket);
   useEffect(() => {
-    socket = io(`:${5000}`, {
+    const socketConnection = io(`:${5000}`, {
       path: "/api/socket",
       addTrailingSlash: false,
     });
-    socket.on("connect", () => {
-      console.log("Connected", socket.id);
+    socketConnection.on("connect", () => {
+      console.log("Connected", socketConnection.id);
     });
-    socket.on("disconnect", () => {
+    socketConnection.on("disconnect", () => {
       console.log("Disconnected");
     });
-    socket.on("connect_error", async (err) => {
+    socketConnection.on("connect_error", async (err) => {
       console.log(`connect_error due to ${err.message}`);
-      await fetch(`${process.env.PROTOCOL_AND_HOST}/api/socket`, {
-        method: "POST",
-        body: { key: "value" },
-        headers: { "Content-Type": "application/json" },
-      });
+      await fetch(`${process.env.PROTOCOL_AND_HOST}/api/socket`);
     });
+    setSocket(socketConnection);
     return () => {
-      socket.disconnect();
+      socketConnection.disconnect();
     };
   }, []);
   console.log(socket);
+
   const checkWebSocket = () => {
     const event = socket.emit("userData", 2, (response) => {
       console.log(response);
