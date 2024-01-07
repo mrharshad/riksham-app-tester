@@ -6,7 +6,7 @@ export const config = {
     bodyParser: false,
   },
 };
-const PORT = 4000;
+const PORT = 5000;
 
 export async function GET(req) {
   console.log("Starting Socket.IO server on port:", PORT);

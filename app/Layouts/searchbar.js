@@ -9,13 +9,13 @@ const Searchbar = () => {
 
   const [userData, setUserData] = useState({});
   const [key, setKey] = useState("no");
-  const [socket, setSocket] = useState(false);
+  const [socket, setSocket] = useState();
 
   // const socket = io("http://localhost:3000/api/socket");
 
   console.log("socket", socket);
   useEffect(() => {
-    const socketConnection = io(`:${4000}`, {
+    const socketConnection = io(`:${5000}`, {
       path: "/api/socket",
       addTrailingSlash: false,
     });
