@@ -6,7 +6,7 @@ import client from "@/backend/config/redisConnect";
 //     bodyParser: false,
 //   },
 // };
-const PORT = 5000;
+const PORT = 3001;
 
 export async function GET(req) {
   console.log("Starting Socket.IO server on port:", PORT);
