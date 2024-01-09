@@ -2,7 +2,7 @@ import style from "./Header.module.css";
 import Searchbar from "./searchbar";
 
 const Header = ({ Link, Image, userData }) => {
-  const { fName = "Profile", pinCode } = userData;
+  const { fName = "Profile", pinCode } = userData || {};
 
   return (
     <header className={style.header} id="header">
