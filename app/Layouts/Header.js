@@ -1,8 +1,8 @@
 import style from "./Header.module.css";
 import Searchbar from "./searchbar";
 
-const Header = ({ Link, Image, userInfo }) => {
-  const { fName = "Profile", pinCode } = userInfo || {};
+const Header = ({ Link, Image, userData }) => {
+  const { fName = "Profile", pinCode } = userData;
 
   return (
     <header className={style.header} id="header">
@@ -71,7 +71,7 @@ const Header = ({ Link, Image, userInfo }) => {
         <span className={style.second}></span>
         <span className={style.third}></span>
       </label>
-      <Searchbar />
+      <Searchbar userData={userData} />
       <Link href="/admin/user/account" className={style.profileLogo}>
         <svg className={style.svg} viewBox="0 0 24 24">
           <path

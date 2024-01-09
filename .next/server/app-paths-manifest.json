@@ -1,4 +1,8 @@
 {
-  "/api/socket/route": "app/api/socket/route.js",
-  "/page": "app/page.js"
+  "/admin/user/account/page": "app/admin/user/account/page.js",
+  "/page": "app/page.js",
+  "/product/page": "app/product/page.js",
+  "/admin/product-inventory-manager/create/page": "app/admin/product-inventory-manager/create/page.js",
+  "/admin/user/product/orders/page": "app/admin/user/product/orders/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }

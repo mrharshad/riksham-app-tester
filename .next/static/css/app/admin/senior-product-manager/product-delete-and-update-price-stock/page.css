@@ -1,0 +1,668 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/admin/senior-product-manager/product-delete-and-update-price-stock/Update.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Update_stockPrice__TjMLk {
+  padding: 5px 7px 15px 7px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 600px;
+  box-shadow: inset 1px 1px 4px 0px white;
+  border-radius: 10px;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.Update_closeBtn__v_MJK {
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 6;
+
+  .Update_one__wuXZL {
+    rotate: 55deg;
+  }
+
+  .Update_two__0_QGk {
+    rotate: -55deg;
+  }
+}
+
+.Update_stockPrice__TjMLk > .Update_closeBtn__v_MJK {
+  margin: 15px 20px 10px auto;
+  height: 30px;
+  width: 30px;
+}
+
+.Update_closeBtn__v_MJK > span {
+  position: absolute;
+  width: 80%;
+  height: 3px;
+  border-radius: 5px;
+  animation: Update_closeBtn__v_MJK alternate infinite 4s;
+}
+
+.Update_name__lfK_Q {
+  width: 100%;
+  font-size: large;
+}
+
+.Update_shippingCharge__OydTR > input {
+  width: 50px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.Update_packagingCharge__rgRMp input {
+  width: 50px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.Update_everyProduct__o1PMq {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Update_everyProduct__o1PMq > button {
+  height: 15px;
+  width: 15px;
+  border-radius: 2px;
+}
+
+.Update_payment__X7D4J {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.Update_payment__X7D4J > button {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  padding: 5px;
+  font-size: small;
+  background: linear-gradient(to bottom right, #000000, #626262);
+  color: white;
+  border-radius: 5px;
+}
+
+.Update_variantInfo___Skup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  margin: 15px 5px;
+  box-shadow: inset 1px 1px 1px 0px white;
+  padding: 5px;
+  border-radius: 5px;
+
+  .Update_heading__L_86_ > span {
+    color: deeppink;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .Update_everyProduct__o1PMq {
+    margin-top: 10px;
+  }
+}
+.Update_variantUpdate__IBpAP {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.Update_variantColor__IulUS {
+  box-shadow: inset 0px 0px 3px white;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  max-width: 240px;
+  min-width: 180px;
+  height: 320px;
+  gap: 10px;
+  flex-direction: column;
+  position: relative;
+
+  .Update_closeBtn__v_MJK {
+    height: 25px;
+    width: 25px;
+    margin-left: auto;
+    background-color: black;
+  }
+
+  .Update_img__Xs_D0 {
+    max-height: 45%;
+    max-width: 98%;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+
+  .Update_colorName__eFtg0 {
+    position: absolute;
+    font-size: 100%;
+    z-index: 5;
+  }
+
+  .Update_prices__cSn0J {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  .Update_prices__cSn0J > label {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Update_prices__cSn0J > label > input {
+    text-align: center;
+    width: 35%;
+    border-radius: 5px;
+  }
+}
+
+.Update_variantColor__IulUS > button {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5% 8%;
+  margin: auto auto 10px auto;
+  border-radius: 5px;
+}
+
+.Update_stockManage__gV7zd {
+  width: 100%;
+  box-shadow: inset 0px 0px 5px 0px white;
+  border-radius: 5px;
+  padding: 5px;
+  height: 50svh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+
+  .Update_colorName__eFtg0 {
+    height: -moz-fit-content;
+    height: fit-content;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(to right, black 16%, transparent);
+    width: 100%;
+    height: 30px;
+  }
+
+  .Update_colorName__eFtg0 span {
+    color: deeppink;
+  }
+
+  .Update_state__srqLd > .Update_delete__Loipf {
+    cursor: pointer;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: small;
+    color: red;
+    margin-left: auto;
+  }
+
+  .Update_newStoreStock__1Sa_K {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 5px;
+    box-shadow: 1px 1px 3px 0px white;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 5px;
+    margin: auto auto 10px auto;
+    width: 95%;
+    column-gap: 15px;
+    border-radius: 5px;
+  }
+
+  .Update_updateStockBtn__3kVA1 {
+    height: 25px;
+    margin-top: auto;
+  }
+}
+
+.Update_newStoreStock__1Sa_K input {
+  text-align: center;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.Update_newStoreStock__1Sa_K button {
+  padding: 3px 5px;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-left: auto;
+  background-color: #f0f034;
+}
+
+.Update_state__srqLd:nth-child(2n + 1) {
+  margin-left: auto;
+  color: red;
+}
+.Update_state__srqLd {
+  width: 45%;
+  min-height: 100px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 0px 14px;
+  background: linear-gradient(to right top, #ebd28700 50%, #14ffef5e);
+
+  .Update_stateName__m1HBc {
+    color: deepskyblue;
+    margin-bottom: 10px;
+  }
+
+  .Update_district__NbloH {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: small;
+    align-items: center;
+
+    .Update_index__4KH6_ {
+      font-size: medium;
+      color: skyblue;
+      list-style: square;
+    }
+
+    .Update_stock__GxHMY {
+      margin-left: auto;
+      width: 50px;
+      border-radius: 5px;
+      border: none;
+      padding-left: 5px;
+    }
+  }
+
+  .Update_district__NbloH > .Update_closeBtn__v_MJK {
+    width: 7%;
+    min-width: 20px;
+    margin-left: 5%;
+  }
+}
+
+.Update_selectState__2uesz,
+.Update_selectDistrict__bN5YD {
+  background-color: black;
+  border: none;
+  color: white;
+}
+
+.Update_updateStockBtn__3kVA1,
+.Update_updateDocument__BDume {
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 5px 10px;
+  background: linear-gradient(to left top, #3c4cd4, white);
+  box-shadow: inset 2px 2px 1px #6464d7ed;
+}
+
+.Update_allVariants__qcpGJ {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px 5px;
+  border-radius: 5px;
+
+  .Update_index__4KH6_ {
+    margin-right: 5px;
+  }
+
+  .Update_closeBtn__v_MJK {
+    margin-left: 10px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.Update_updateDocumentCover__E4xZ6 {
+  width: 100%;
+  display: flex;
+}
+
+@keyframes Update_closeBtn__v_MJK {
+  0% {
+    box-shadow: inset 0px 0px red;
+  }
+
+  100% {
+    box-shadow: inset 30px 1px red;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Update_stockPrice__TjMLk > .Update_closeBtn__v_MJK {
+    margin: 5px 10px 0px auto;
+  }
+
+  .Update_name__lfK_Q {
+    font-size: medium;
+  }
+
+  .Update_packagingCharge__rgRMp,
+  .Update_shippingCharge__OydTR {
+    font-size: small;
+  }
+
+  .Update_packagingCharge__rgRMp input {
+    margin-left: auto;
+  }
+
+  .Update_shippingCharge__OydTR input {
+    margin-left: auto;
+  }
+
+  .Update_everyProduct__o1PMq {
+    font-size: small;
+  }
+
+  .Update_variantInfo___Skup {
+    margin: 15px 0px;
+
+    .Update_heading__L_86_ {
+      font-size: small;
+    }
+  }
+
+  .Update_variantUpdate__IBpAP {
+    font-size: small;
+    justify-content: space-between;
+
+    .Update_variantColor__IulUS {
+      height: 280px;
+      min-width: 48%;
+      max-width: 48%;
+
+      .Update_img__Xs_D0 {
+        max-height: 35%;
+        max-width: 98%;
+      }
+    }
+  }
+
+  .Update_newStoreStock__1Sa_K button {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  .Update_stockManage__gV7zd {
+    font-size: small;
+    max-height: 100svh;
+    min-height: 50svh;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .Update_state__srqLd {
+    width: 90%;
+    min-height: 50px;
+    margin-left: auto;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/Layouts/toastAndWait.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.toastAndWait_fullSWait__aTWjY {
+  position: absolute;
+  top: 0px;
+  width: 100svw;
+  z-index: 10;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  background-color: rgb(0 0 0 / 49%);
+  /* animation: background 3s alternate infinite; */
+
+  @keyframes toastAndWait_background__cgaQN {
+    0% {
+      background-color: rgb(0 0 0 / 70%);
+    }
+
+    100% {
+      background-color: rgb(0 0 0 / 25%);
+    }
+  }
+}
+
+.toastAndWait_progressBar__a97V6 {
+  margin: auto;
+}
+
+.toastAndWait_progressBar__a97V6>p {
+  grid-column: 1/-1;
+  border-top: 7px solid deepskyblue;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  margin: 15px auto 0px auto;
+  animation: toastAndWait_spin__d4erG 1s linear infinite;
+
+}
+
+@keyframes toastAndWait_spin__d4erG {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/admin/senior-product-manager/product-delete-and-update-price-stock/ProductUpdateDelete.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ProductUpdateDelete_background__TABTA {
+  top: 0px;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background: linear-gradient(to right bottom, #749fe4ed, transparent 70%);
+
+  .ProductUpdateDelete_deleteConfirmation__JQXmY {
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px 5px;
+    margin: 20% auto 0px auto;
+    display: flex;
+    width: -moz-fit-content;
+    width: fit-content;
+    flex-wrap: wrap;
+    max-width: 300px;
+    justify-content: space-around;
+
+    .ProductUpdateDelete_name__Z9cYv {
+      color: white;
+      width: 100%;
+      font-weight: 600;
+      font-size: large;
+      margin-bottom: 5%;
+    }
+
+    .ProductUpdateDelete_wait__0_e_2 {
+      border-top: 3px solid deepskyblue;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      animation: ProductUpdateDelete_spin__qDJZ_ 1.5s linear infinite;
+      margin: auto;
+    }
+  }
+
+  .ProductUpdateDelete_deleteConfirmation__JQXmY button {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .ProductUpdateDelete_deleteConfirmation__JQXmY button:nth-child(2) {
+    background: linear-gradient(to right top, #ff4343, white);
+  }
+
+  .ProductUpdateDelete_deleteConfirmation__JQXmY button:last-child {
+    background: linear-gradient(to right top, #8cc88c, white 80%);
+  }
+}
+
+.ProductUpdateDelete_mainContainer__7oikJ {
+  background-color: black;
+  min-height: 100svh;
+}
+
+.ProductUpdateDelete_mainContainer__7oikJ p {
+  color: white;
+}
+
+.ProductUpdateDelete_mainContainer__7oikJ span {
+  color: white;
+}
+
+.ProductUpdateDelete_mainContainer__7oikJ label {
+  color: white;
+}
+
+.ProductUpdateDelete_mainContainer__7oikJ h1 {
+  color: white;
+}
+
+.ProductUpdateDelete_mainContainer__7oikJ>.ProductUpdateDelete_heading__jkGRt {
+  font-size: larger;
+  font-weight: 700;
+  padding-top: 20px;
+  margin-left: 10px;
+}
+
+.ProductUpdateDelete_mainContainer__7oikJ button {
+  cursor: pointer;
+  border: none;
+}
+
+.ProductUpdateDelete_searchBar__U7qfR {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.ProductUpdateDelete_searchBar__U7qfR input {
+  font-size: max(1.5vh, 13px);
+  padding-left: 10px;
+  width: 80%;
+  max-width: 250px;
+  height: 30px;
+  outline: none;
+  color: white;
+  background-color: transparent;
+  border-radius: 5px 0px 0px 5px;
+  margin-left: auto;
+  border: none;
+  box-shadow: inset 0px 0px max(0.4vh, 5px) 0px white;
+}
+
+.ProductUpdateDelete_searchBar__U7qfR input:focus {
+  border: max(0.1vh, 1px) solid skyblue;
+}
+
+.ProductUpdateDelete_searchBar__U7qfR input::placeholder {
+  color: white;
+}
+
+.ProductUpdateDelete_searchBar__U7qfR button {
+  height: 30px;
+  width: max(4vh, 40px);
+  background-color: skyblue;
+  border-radius: 0px 5px 5px 0px;
+  margin-right: 1%;
+}
+
+.ProductUpdateDelete_searchBar__U7qfR button svg {
+  width: 30px;
+}
+
+.ProductUpdateDelete_showDetails__8YTy0 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ProductUpdateDelete_products__S13Fh,
+.ProductUpdateDelete_showDetails__8YTy0 {
+  display: grid;
+  box-shadow: inset 0px 0px 2px 0px white;
+  text-align: center;
+  align-items: center;
+  padding: 3px;
+  grid-column-gap: 5px;
+  column-gap: 5px;
+  border-radius: 5px;
+  grid-template-columns: 1fr 4fr 1fr 2fr;
+
+  .ProductUpdateDelete_numberOfProduct__JjctS {
+    color: deepskyblue;
+  }
+
+  .ProductUpdateDelete_name__Z9cYv {
+    padding: 3px 0px 2px 0px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.ProductUpdateDelete_products__S13Fh {
+  margin-top: 10px;
+
+  .ProductUpdateDelete_deleteKey__117Dw {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.ProductUpdateDelete_products__S13Fh:hover {
+  background-color: #303030c5;
+}
+
+.ProductUpdateDelete_products__S13Fh>svg {
+  cursor: pointer;
+  width: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20px;
+}
+
+@media only screen and (max-width: 480px) {
+  .ProductUpdateDelete_searchBar__U7qfR input {
+    width: 50%;
+  }
+
+}
+
+@keyframes ProductUpdateDelete_spin__qDJZ_ {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

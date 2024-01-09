@@ -72,9 +72,9 @@ const User = new mongoose.Schema(
     role: [String],
 
     // "User"
-    // "Senior Product Manager"
-    // "Product Manager"
-    // "Product Inventory Manager"
+    // "Product deil , Set Qty, and Price  Manager" => S D_&_P  M
+    // "Product District Stock and Order Manager"  => P D S_&_O M
+    // "Product information Create, read, update" => => P I C_&_R_&_U_&_D
 
     address: {
       type: String,

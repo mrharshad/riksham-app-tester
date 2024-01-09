@@ -1,0 +1,165 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/admin/user/account/accounts.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************/
+.accounts_section__L0QTe {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom right, black, #334258);
+  color: white;
+}
+
+.accounts_container__S45ay {
+  height: -moz-fit-content;
+  height: fit-content;
+  box-shadow: inset 1px 1px 3px 0px;
+  max-width: 500px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px 0px 5px;
+  row-gap: 10px;
+}
+
+.accounts_section__L0QTe .accounts_editAccountLink__TxCOT {
+  color: skyblue;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 10px;
+  font-size: small;
+  display: flex;
+  align-items: center;
+}
+
+.accounts_editAccountLink__TxCOT:hover {
+  scale: 1.1;
+}
+
+.accounts_section__L0QTe .accounts_editAccountLink__TxCOT svg {
+  height: 15px;
+  width: 15px;
+  margin-right: 3px;
+}
+
+.accounts_container__S45ay h5 {
+  font-size: large;
+  font-weight: 500;
+  color: coral;
+}
+
+.accounts_container__S45ay h5 span {
+  color: white;
+}
+
+.accounts_container__S45ay h5 span {
+  font-size: medium;
+}
+
+.accounts_container__S45ay .accounts_pinCodeComponent___9inL {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  line-height: 35px;
+}
+
+.accounts_container__S45ay p {
+  border-top: 1px solid #303030c5;
+}
+
+.accounts_container__S45ay p > span {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.accounts_container__S45ay .accounts_pinCodeComponent___9inL p {
+  min-width: 200px;
+}
+
+.accounts_section__L0QTe a {
+  transition: color ease-in-out 200ms;
+  color: skyblue;
+}
+
+.accounts_section__L0QTe a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.accounts_section__L0QTe h4 {
+  text-align: end;
+}
+
+.accounts_container__S45ay > button {
+  color: white;
+  box-shadow: inset 0px 0px 20px 0px #6c838e;
+  border-radius: 5px;
+  border: none;
+  width: 150px;
+  margin: 15px auto 10px auto;
+  height: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.accounts_container__S45ay > button:hover {
+  color: red;
+  box-shadow: inset 0px 0px 0px 0px red;
+}
+
+.accounts_team__IA6s7 {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  box-shadow: inset 1px 1px 3px 0px;
+  width: 300px;
+
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 10px;
+  margin-top: 70px;
+}
+
+.accounts_team__IA6s7 div {
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.accounts_team__IA6s7 h2 {
+  font-size: larger;
+}
+
+@media only screen and (max-width: 480px) {
+  .accounts_section__L0QTe {
+    background: black;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .accounts_container__S45ay {
+    width: 97%;
+    background: linear-gradient(to top left, #2f404b, transparent);
+  }
+
+  .accounts_section__L0QTe p {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .accounts_container__S45ay p span {
+    font-size: medium;
+  }
+
+  .accounts_section__L0QTe a {
+    font-size: 14px;
+  }
+
+  .accounts_team__IA6s7 {
+    margin: 80px auto 0px auto;
+  }
+}
+
