@@ -1,0 +1,314 @@
+.imgContainer {
+    border-radius: 10px;
+    display: flex;
+    height: max(340px, 36vh);
+    grid-row: 1/-1;
+
+
+    .mainImg {
+        padding: 0.3em;
+        margin: auto;
+        width: fit-content;
+        height: fit-content;
+        order: 2;
+        border-radius: 1em;
+        max-width: 70%;
+        max-height: 98%;
+    }
+
+    .images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 99%;
+        width: 30%;
+        row-gap: 1%;
+        overflow-y: auto;
+        scrollbar-width: none;
+
+        .imagesCover {
+            padding: 5px 0px 5px 0px;
+            border: 1px solid black;
+            cursor: pointer;
+            border-radius: 5px;
+            height: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 110px;
+        }
+
+        .imagesCover img {
+            max-height: 100%;
+            max-width: 100px;
+            width: fit-content;
+            height: fit-content;
+        }
+    }
+
+    .images::-webkit-scrollbar {
+        display: none;
+    }
+
+
+}
+
+.variantInfo {
+    order: 3;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 12px;
+    margin-bottom: auto;
+
+    .price {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .currentPrice {
+        font-size: xx-large;
+        font-weight: 600;
+        display: flex;
+    }
+
+    .mrp {
+        margin-left: 5%;
+        margin-right: 2%;
+    }
+
+    .mrp span {
+        text-decoration: line-through;
+    }
+
+    .discount {
+        background: linear-gradient(to top left, transparent, #c4eeff);
+        border-radius: 2px;
+        padding-left: 2px;
+        font-weight: bold;
+        font-size: small;
+        padding-right: 2px;
+    }
+
+    .options {
+        row-gap: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+
+        .colors {
+            display: flex;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            align-items: center;
+            font-weight: bold;
+            white-space: nowrap;
+
+            .selected {
+                background: white;
+            }
+
+            .container {
+                display: flex;
+                overflow-x: auto;
+                width: 100%;
+                scrollbar-width: none;
+            }
+
+            .container::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        .colors p {
+            cursor: pointer;
+        }
+
+    }
+
+    .delivery {
+        font-weight: bold;
+        width: 100%;
+        font-size: large;
+    }
+
+    .delivery>span {
+        font-size: medium;
+        font-weight: 500;
+    }
+
+    .options div>p {
+        background: linear-gradient(to left top, transparent, #d9d9d9);
+        border: 1px solid;
+        min-width: fit-content;
+        width: 50px;
+        text-align: center;
+        font-weight: 500;
+        margin-left: 10px;
+        border-radius: 5px;
+        padding-left: 3px;
+        padding-right: 3px;
+        word-wrap: break-word;
+    }
+
+    .options div>p:hover {
+        scale: .9;
+    }
+
+    .options div p span {
+        font-size: small;
+        font-weight: 600;
+    }
+}
+
+.userPinCode {
+    font-size: large;
+    font-size: medium;
+    display: flex;
+    column-gap: 5px;
+    width: 100%;
+}
+
+.userPinCode p {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.userPinCode p::-webkit-scrollbar {
+    display: none;
+}
+
+.userPinCode span {
+    min-width: fit-content;
+    font-weight: bold;
+}
+
+.userPinCode input {
+    border: none;
+    border: 1px solid black;
+    text-align: center;
+    outline: none;
+    padding-left: 3px;
+    height: 25px;
+    border-radius: 5px;
+    margin-left: 5px;
+    width: 80px;
+    background: linear-gradient(to right top, transparent, #d9d9d9);
+}
+
+.userPinCode input::placeholder {
+    color: black;
+}
+
+.variantInfo button {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right top, transparent, #d9d9d9);
+    margin-bottom: 10px;
+}
+
+.buyNow {
+    margin-left: 10%;
+}
+
+.variantInfo button:hover {
+    background: white;
+    border: 1px solid;
+    scale: 1.03;
+}
+
+@media only screen and (max-width: 480px) {
+
+    .imgContainer {
+        padding: 5px;
+        grid-column: 1/-1;
+        border: 1px solid;
+
+        .mainImg {
+            max-width: 75%;
+
+        }
+
+        .images {
+            width: 25%;
+
+            .imagesCover {
+                min-width: 70px;
+                width: 100%;
+                padding: 5px;
+
+            }
+
+            .imagesCover img {
+                max-width: 98%;
+                max-height: 98%;
+            }
+        }
+
+
+
+    }
+
+    .variantInfo {
+
+        background: linear-gradient(to top, rgb(54, 54, 54), white);
+        padding-left: 3px;
+        padding-right: 3px;
+        border-top: none;
+        grid-column: 1/-1;
+        justify-content: space-around;
+
+        .currentPrice {
+            font-size: x-large;
+        }
+
+        .options {
+
+            .colors,
+            .variants {
+                .container {
+                    scrollbar-width: none;
+
+                }
+
+                .container::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            .priceSame {
+                font-size: medium;
+            }
+
+            .priceSame span {
+                background: none;
+            }
+
+        }
+
+        .delivery {
+            font-size: medium;
+        }
+
+        .delivery span {
+            font-size: small;
+        }
+    }
+
+    .variantInfo .userPinCode input {
+        margin-left: auto;
+    }
+
+    .variantInfo button {
+        width: 40%;
+        margin-bottom: 0px;
+        font-size: medium;
+    }
+}
