@@ -70,6 +70,7 @@ const User = new mongoose.Schema(
         pinCode: Number,
         state: String,
         district: String,
+        area: "String",
       },
     ],
 

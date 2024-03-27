@@ -79,7 +79,7 @@ export async function GET(req) {
 
       if ((!tOfPFetch && isSponsored) || tOfPFetch) {
         // try {
-        //   if (page == 1) {
+        //   if (keyPage == 1) {
         //     await client.rpush(
         //       url,
         //       ...data

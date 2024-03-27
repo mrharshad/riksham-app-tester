@@ -1,4 +1,4 @@
-.section > input {
+.home > input {
   display: none;
 }
 
@@ -162,10 +162,6 @@
   background: linear-gradient(to right, transparent, rgb(181 181 181) 166%);
 }
 
-.options p::-webkit-scrollbar {
-  display: none;
-}
-
 .searchProducts a:hover {
   scale: 1.01;
 }
@@ -187,7 +183,7 @@
   #skeletonDiv {
     top: 9svh;
   }
-  .section {
+  .home {
     padding-top: 1svh;
   }
 

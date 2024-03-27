@@ -286,6 +286,9 @@ export async function POST(req) {
                 path: "/", // all path
               });
               await manageToken(findUser, "delete");
+              try {
+                await client.hset(`user:${findLastId.lastUserId}`, newData);
+              } catch (err) {}
               newData.token = jwtToken;
               delete newData.password;
               return response("Account created successfully ", 201, newData);

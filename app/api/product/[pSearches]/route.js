@@ -46,6 +46,7 @@ export async function GET(req, context) {
       "Weighing Scale",
       "Abdominal Guard",
       "Face Scrub",
+      "Face Cream",
       "Face Moisturizer",
       "Bleach",
       "Face Wash",

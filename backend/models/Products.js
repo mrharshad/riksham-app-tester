@@ -8,7 +8,7 @@ const Product = new mongoose.Schema(
       unique: true,
     },
     brand: String,
-    tOfP: String,
+    tOfP: String, // Men: Football Shoes / sabse pahale kiske liye hai agar sabhi ke liye hai to sirf Football Shoes
     category: String,
     des1: String,
     des2: String,
@@ -18,7 +18,6 @@ const Product = new mongoose.Schema(
     aInfo: [String],
     payType: [String],
     tOfDelivery: [String],
-
     imageSetD: String,
     imgSetPD: Boolean,
     thumbnail: { thumbId: String, thumbUrl: String },
@@ -101,9 +100,7 @@ const Product = new mongoose.Schema(
     buyers: [
       {
         _id: Number,
-        bN: {
-          type: String,
-        },
+        bN: String,
         bS: String,
         bD: String,
         bR: {
@@ -112,6 +109,7 @@ const Product = new mongoose.Schema(
           min: 1,
         },
         bC: String,
+        bCR: [String],
         dDate: String,
       },
     ],

@@ -12,18 +12,22 @@ import {
   activityKey,
   searchSortChange,
   removeSearchKeys,
+  addNewProduct,
 } from "../redux/slice/activity";
 import {
   clearSearch,
   fetchSearchKeys,
   pageKeyChange,
   position,
+  reFetchKey,
+  singleProData,
+  singleProKeyChange,
 } from "../redux/slice/pageHistory";
 import { UserAlert } from "./toastAndWait";
 
 const Header = ({ Link, Image, userData = {}, connect }) => {
   const router = useRouter();
-
+  const limit = process.env.PRODUCT_PER_PAGE;
   let {
     searchKeys: oldSearchKeys,
     intTofP: oldIntOfP,
@@ -32,9 +36,13 @@ const Header = ({ Link, Image, userData = {}, connect }) => {
   } = userData;
   const dispatch = useDispatch();
   const keyword = useRef();
-
+  const hideElement = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.style.display = "none";
+    }
+  };
   let {
-    current,
     loading,
     filteredSearch,
     nameKeys,
@@ -42,14 +50,152 @@ const Header = ({ Link, Image, userData = {}, connect }) => {
     suggestion,
     searches,
     pSOS,
+    active,
+    singleP = {},
   } = useSelector((data) => data.pageHistory);
+  let {
+    fetchKey,
+    fetchNow,
+    tOfPPage,
+    catePage,
+    cateName,
+    tOfPName,
+    pending,
+    proId,
+  } = singleP;
 
-  const { intTofP, search, searchKeys, searchSort, aSOS, loadingA } =
-    useSelector((data) => data.activity);
+  const {
+    intTofP,
+    search,
+    searchKeys,
+    searchSort,
+    aSOS,
+    loadingA,
+    products,
+    page,
+    categoryKeys,
+  } = useSelector((data) => data.activity);
   const { data, token, connectIn, numOfNewOrder, numOfCartP } = useSelector(
     (data) => data.user
   );
   const { fName } = data || {};
+  const findTOfPAndCategoryP = async (fetchKey, query) => {
+    const { page, key, name, index } = query || {};
+    const req = await fetch(
+      `/api/product/tOfP-category/?fetchKey=${fetchKey}&page=${page}&name=${name}`
+    );
+    const { success, message, data, resPage, numOfPro } = await req.json();
+    console.log("result", key, name, numOfPro, resPage);
+    if (success) {
+      dispatch(
+        addNewProduct({
+          data,
+          key,
+          name,
+          page: resPage,
+          index,
+        })
+      );
+      if (numOfPro) {
+        dispatch(reFetchKey(fetchKey));
+      }
+    }
+    if (!resPage || !success) {
+      hideElement(fetchKey);
+    }
+  };
+  useEffect(() => {
+    console.log("fetch key useEffect run ", fetchKey);
+    if (active == "singleP" && fetchKey) {
+      const ids = [];
+      let data = [];
+      let query = { page: 1 };
+      console.log("products", products);
+      if (fetchKey !== "category") {
+        const index = intTofP.findIndex((data) => data.name == tOfPName);
+        query.index = index;
+        const intTPage = intTofP[index]?.page;
+        if (intTPage === null) {
+          query = { page: intTPage, key: "intTofP", index };
+        } else {
+          let cachedPage = searchKeys.find(
+            (keys) => keys.name == tOfPName
+          )?.cached;
+          if (cachedPage) {
+            cachedPage =
+              cachedPage.find((obj) => obj.page === null)?.page ||
+              cachedPage.find((obj) => obj.page === "Popular")?.page;
+            if (cachedPage === null || cachedPage > intTPage) {
+              query = { page: cachedPage, key: "searchKeys" };
+            } else {
+              query = { page: intTPage, key: "intTofP", index };
+            }
+          }
+        }
+        data = products
+          .filter((obj) => {
+            const { tOfP, _id } = obj;
+            if (tOfP === tOfPName && _id !== proId && !ids.includes(_id)) {
+              ids.push(_id);
+              return obj;
+            }
+          })
+          .slice((tOfPPage - 1) * limit, limit * tOfPPage);
+        query.name = tOfPName;
+        if (!query.key) {
+          query.key = "intTofP";
+        }
+      } else {
+        query.name = cateName;
+        query.key = "category";
+        const index = categoryKeys.findIndex((obj) => obj.name === query.name);
+        if (index >= 0) {
+          query.page = categoryKeys[index].page;
+          data = products
+            .filter((obj) => {
+              const { tOfP, category, _id } = obj;
+              if (
+                category == cateName &&
+                tOfP !== tOfPName &&
+                _id !== proId &&
+                !ids.includes(_id)
+              ) {
+                ids.push(_id);
+                return obj;
+              }
+            })
+            .slice((catePage - 1) * limit, limit * catePage);
+        }
+      }
+      const numOfPro = data.length;
+      console.log("numOfPro", numOfPro, fetchKey);
+      if (numOfPro) {
+        if (query.key === "intTofP" && query.index >= 0) {
+          query.token = token;
+          query.searchKeys = searchKeys;
+          query.intTofP = intTofP;
+
+          dispatch(intTofPFunc({ ...query, indexIntTofP: query.index }));
+        }
+
+        dispatch(
+          singleProData({
+            fetchKey,
+            data,
+            pending,
+          })
+        );
+      }
+      if (query.page !== null && page !== null && numOfPro < 10) {
+        findTOfPAndCategoryP(fetchKey, query);
+      }
+      console.log(" query", query);
+      if (numOfPro < limit && (query.page === null || page === null)) {
+        hideElement(fetchKey);
+        dispatch(singleProKeyChange({ name: "fetchKey", value: "" }));
+      }
+    }
+  }, [fetchNow]);
 
   let numOfFiltered = filteredSearch.length;
   function capitalizeWords(str) {
@@ -88,52 +234,11 @@ const Header = ({ Link, Image, userData = {}, connect }) => {
     inputElement.addEventListener("focusout", function () {
       dispatch(pageKeyChange({ name: "suggestion", value: "0px" }));
     });
+    const scrollHandler = () => {
+      dispatch(position(window.scrollY));
+    };
+    addEventListener("scroll", scrollHandler);
   }, []);
-
-  useEffect(() => {
-    if (current == "home") {
-      const scrollHandler = () => {
-        dispatch(
-          position({
-            name: current,
-            current: window.scrollY,
-          })
-        );
-      };
-      addEventListener("scroll", scrollHandler);
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              dispatch(
-                pageKeyChange({
-                  name: "scrollFetching",
-                  value: Math.floor(Math.random() * 1000),
-                })
-              );
-            }
-          });
-        },
-        {
-          // root: document.querySelector("nav"),
-          // rootMargin: "100px",
-          // threshold: 0,
-        }
-      );
-
-      const items = document.querySelector(`#loading`);
-      observer.observe(items);
-
-      // return () => {
-      //   // observer.disconnect();
-      //   // removeEventListener("scroll", scrollHandler);
-      //   // dispatch(pageKeyChange({ name: "current", value: "other" }));
-      // };
-    } else {
-      removeEventListener("scroll", () => {});
-    }
-  }, [current]);
 
   const searchFunc = (key, newSort) => {
     let { name, cached, type } = typeof key == "object" ? key : {};
@@ -153,7 +258,6 @@ const Header = ({ Link, Image, userData = {}, connect }) => {
     let findKey = false;
 
     keyword.current.value = capitalized;
-
     const indexIntTofP = intTofP.findIndex((data) => data.name == capitalized);
     const intTPage = intTofP[indexIntTofP]?.page;
 

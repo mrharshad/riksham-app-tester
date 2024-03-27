@@ -1,6 +1,9 @@
 {
+  "/single-p/page": "app/single-p/page.js",
   "/page": "app/page.js",
-  "/admin/user/account/page": "app/admin/user/account/page.js",
-  "/user/sign-up/page": "app/user/sign-up/page.js",
-  "/user/login/page": "app/user/login/page.js"
+  "/user/login/page": "app/user/login/page.js",
+  "/admin/p-general/page": "app/admin/p-general/page.js",
+  "/api/admin/user/data/[common]/route": "app/api/admin/user/data/[common]/route.js",
+  "/api/product/single-p/[_id]/route": "app/api/product/single-p/[_id]/route.js",
+  "/api/product/tOfP-category/route": "app/api/product/tOfP-category/route.js"
 }

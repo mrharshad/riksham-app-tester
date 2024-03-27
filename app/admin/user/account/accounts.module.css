@@ -1,159 +1,29 @@
-.section {
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(to bottom right, black, #334258);
-  color: white;
-}
-
-.container {
-  height: fit-content;
-  box-shadow: inset 1px 1px 3px 0px;
-  max-width: 500px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 5px 0px 5px;
-  row-gap: 10px;
-}
-
-.section .editAccountLink {
-  color: skyblue;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: 10px;
-  font-size: small;
-  display: flex;
-  align-items: center;
-}
-
-.editAccountLink:hover {
-  scale: 1.1;
-}
-
-.section .editAccountLink svg {
-  height: 15px;
-  width: 15px;
-  margin-right: 3px;
-}
-
-.container h5 {
-  font-size: large;
-  font-weight: 500;
-  color: coral;
-}
-
-.container h5 span {
-  color: white;
-}
-
-.container h5 span {
-  font-size: medium;
-}
-
-.container .pinCodeComponent {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  line-height: 35px;
-}
-
-.container p {
-  border-top: 1px solid #303030c5;
-}
-
-.container p > span {
-  font-weight: bold;
-  font-style: italic;
-}
-
-.container .pinCodeComponent p {
-  min-width: 200px;
-}
-
-.section a {
-  transition: color ease-in-out 200ms;
-  color: skyblue;
-}
-
-.section a:hover {
-  text-decoration: underline;
-  color: white;
-}
-
-.section h4 {
-  text-align: end;
-}
-
-.container > button {
-  color: white;
-  box-shadow: inset 0px 0px 20px 0px #6c838e;
-  border-radius: 5px;
-  border: none;
-  width: 150px;
-  margin: 15px auto 10px auto;
-  height: 30px;
-  background-color: transparent;
-  cursor: pointer;
-  transition: all 300ms ease;
-}
-
-.container > button:hover {
-  color: red;
-  box-shadow: inset 0px 0px 0px 0px red;
-}
-
-.team {
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-  box-shadow: inset 1px 1px 3px 0px;
-  width: 300px;
-
-  border-radius: 10px;
+.option {
+  margin-top: 15px;
+  box-shadow: inset 0px 0px 2px 0px;
   padding: 5px;
-  margin-left: 10px;
-  margin-top: 70px;
+  border-radius: 5px;
+  background-color: #141414;
+  width: 100%;
 }
 
-.team div {
-  border-bottom: 1px solid;
-  padding-bottom: 10px;
+.option > span {
+  margin-top: 5px;
+  font-size: 14px;
+  display: block;
+}
+
+.option p:first-child {
+  margin-bottom: 10px;
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  font-weight: bold;
+  font-size: medium;
+  justify-content: space-between;
 }
 
-.team h2 {
-  font-size: larger;
-}
-
-@media only screen and (max-width: 480px) {
-  .section {
-    background: black;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .container {
-    width: 97%;
-    background: linear-gradient(to top left, #2f404b, transparent);
-  }
-
-  .section p {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .container p span {
-    font-size: medium;
-  }
-
-  .section a {
-    font-size: 14px;
-  }
-
-  .team {
-    margin: 80px auto 0px auto;
+@media screen and (max-width: 480px) {
+  .option > span {
+    font-size: small;
   }
 }

@@ -378,7 +378,9 @@
     position: relative;
     background-color: black;
   }
-
+  .header nav img {
+    margin-top: 1rem;
+  }
   .header > .sideBarInput:checked ~ nav {
     translate: 0;
   }

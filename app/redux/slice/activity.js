@@ -32,17 +32,17 @@ export const fetchKeyProduct = createAsyncThunk(
 );
 
 export const intTofPFunc = createAsyncThunk("intTofPFunc", async (query) => {
-  let { intTofP, token, name, searchKeys, indexIntTofP } = query;
+  let { intTofP, token, name, searchKeys, indexIntTofP, value } = query;
   let newIntTofP = JSON.parse(JSON.stringify(intTofP));
 
   let priority = 0;
   if (indexIntTofP >= 0) {
-    priority = 1 + newIntTofP[indexIntTofP].priority;
+    priority = (value || 1) + newIntTofP[indexIntTofP].priority;
     newIntTofP[indexIntTofP].priority = priority;
     newIntTofP = newIntTofP.sort((a, b) => b.priority - a.priority);
   } else {
     priority = 1;
-    newIntTofP.push({ name, page: 1, priority: 1 });
+    newIntTofP.push({ name, page: 1, priority: value || 1 });
   }
 
   if (Number.isInteger(priority / 3)) {
@@ -100,13 +100,14 @@ const ActivitySlice = createSlice({
   initialState: {
     products: [],
     intTofP: [],
-    loadingA: true,
+    loadingA: false,
     searchPro: [],
     search: {},
     searchSort: "Popular",
     page: 1,
     aSOS: false,
     searchKeys: [],
+    categoryKeys: [],
   },
 
   reducers: {
@@ -238,6 +239,52 @@ const ActivitySlice = createSlice({
       const { name, value } = action.payload;
       state[name] = value;
     },
+    addNewProduct: (state, action) => {
+      const { data, key, name, page, index } = action.payload;
+      const ids = state.products.map((data) => data._id);
+      const unique = [];
+      data.forEach((doc) => {
+        const { _id } = doc;
+        if (!ids.includes(_id)) {
+          unique.push(doc);
+          ids.push(_id);
+        }
+      });
+      if (key == "searchKeys") {
+        let searchData = new Array(...state.searchKeys);
+        let findKey = searchData.findIndex((data) => data.name === name);
+
+        if (findKey >= 0) {
+          const cached = searchData[findKey].cached;
+          const findCached = cached.findIndex(
+            (data) => data.sorted === "Popular"
+          );
+          if (findCached >= 0) {
+            cached[findCached].page = page;
+          } else {
+            cached.unshift({ sorted: "Popular", page });
+          }
+          state.searchKeys = searchData;
+        } else {
+          state.searchKeys.unshift({
+            name,
+            type: "tOfP",
+            cached: [{ sorted: "Popular", page }],
+          });
+        }
+      } else if (key == "intTofP") {
+        if (index >= 0) {
+          state.intTofP[index].page = page;
+        } else {
+          state.intTofP.push({ name, page, priority: 1 });
+        }
+      } else {
+        index >= 0
+          ? (state.categoryKeys[index].page = page)
+          : state.categoryKeys.push({ name, page });
+      }
+      state.products.push(...unique);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchRandom.pending, (state, action) => {
@@ -355,6 +402,7 @@ export const {
   searchSortChange,
   searchKeyChange,
   activityKey,
+  addNewProduct,
 } = ActivitySlice.actions;
 
 export default ActivitySlice.reducer;

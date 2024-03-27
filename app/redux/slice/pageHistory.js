@@ -19,7 +19,6 @@ const PageHistorySlice = createSlice({
   name: "pageHistory",
   initialState: {
     loading: false,
-    current: "other",
     tOfPKeys: [],
     nameKeys: [],
     filteredSearch: [],
@@ -30,9 +29,74 @@ const PageHistorySlice = createSlice({
   },
 
   reducers: {
-    newPage: (state, action) => {
-      const pageName = action.payload;
-      state[pageName] = { scrolled: 0 };
+    visitPage: (state, action) => {
+      const { name, value, active } = action.payload;
+      if (active) {
+        state.active = active;
+      }
+      if (value) {
+        const obj = state[name] || {};
+        const { fetchKey, tOfPName, pending, cateName, proId } = obj;
+        console.log("obj", fetchKey, tOfPName, pending, cateName);
+        const { fetchKey: valueFetchKey, newId, fetchNow } = value;
+        console.log("valueFetchKey", valueFetchKey, "fetchKey", fetchKey);
+        if (fetchKey && fetchKey == valueFetchKey) {
+          return;
+        }
+
+        if (fetchKey && valueFetchKey && fetchKey !== valueFetchKey) {
+          obj.pending = fetchKey;
+        }
+        // if (fetchKey || valueFetchKey) {
+        state[name] = Object.assign(obj, value);
+        console.log(
+          "run end tak",
+          fetchKey,
+          valueFetchKey,
+          newId,
+          fetchNow,
+          "  value :",
+          value
+        );
+        // }
+      }
+    },
+
+    singleProData: (state, action) => {
+      let { fetchKey, data, pending } = action.payload;
+      const category = fetchKey === "category";
+      const singleP = state.singleP;
+
+      if (category) {
+        singleP.cateData.push(...data);
+        ++singleP.catePage;
+      } else {
+        singleP.tOfPData.push(...data);
+        ++singleP.tOfPPage;
+      }
+
+      singleP.pending = undefined;
+      singleP.fetchKey = pending ? pending : "";
+      console.log(
+        "condition check",
+        "singleP.fetchKey",
+        singleP.fetchKey,
+        "fetchKey",
+        fetchKey,
+        "pending",
+        pending
+      );
+      if (singleP.fetchKey) {
+        console.log("run pending true condition");
+        singleP.fetchNow = Math.floor(Math.random() * 1000);
+      }
+      console.log("result 2", category, fetchKey, pending, data);
+      state.singleP = singleP;
+    },
+
+    singleProKeyChange: (state, action) => {
+      const { name, value } = action.payload;
+      state.singleP[name] = value;
     },
     pageKeyChange: (state, action) => {
       const { name, value } = action.payload;
@@ -40,17 +104,21 @@ const PageHistorySlice = createSlice({
     },
 
     position: (state, action) => {
-      const { name, current } = action.payload;
-      const oldP = state[name].scrolled;
+      const current = action.payload;
+      const active = state.active;
       if (state.suggestion !== "0px") {
         state.suggestion = "0px";
       }
-
-      if (
-        (oldP + 500 < current || oldP > current + 500) &&
-        oldP - 1000 < current
-      ) {
-        state[name].scrolled = current;
+      if (active !== "other") {
+        const oldP = state[active]?.scrolled;
+        if (
+          oldP + 500 < current ||
+          oldP > current + 500
+          //  &&
+          // oldP - 1000 < current
+        ) {
+          state[active].scrolled = current;
+        }
       }
     },
 
@@ -59,6 +127,10 @@ const PageHistorySlice = createSlice({
       state.tOfPKeys = [];
       state.filteredSearch = [];
       state.nameKeys = [];
+    },
+    reFetchKey: (state, action) => {
+      state.singleP.fetchKey = action.payload;
+      state.singleP.fetchNow = Math.floor(Math.random() * 1000);
     },
   },
   extraReducers: (builder) => {
@@ -91,6 +163,13 @@ const PageHistorySlice = createSlice({
   },
 });
 
-export const { position, newPage, pageKeyChange, clearSearch } =
-  PageHistorySlice.actions;
+export const {
+  position,
+  visitPage,
+  pageKeyChange,
+  clearSearch,
+  singleProData,
+  singleProKeyChange,
+  reFetchKey,
+} = PageHistorySlice.actions;
 export default PageHistorySlice.reducer;

@@ -1,0 +1,250 @@
+.section {
+  display: grid;
+  padding: 5px;
+  flex-wrap: wrap;
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-rows: 30px 70px 70px 190px;
+  column-gap: 10px;
+}
+
+.section h1 {
+  grid-column: 1/-1;
+  grid-row: 1/3;
+}
+.firstDiv {
+  margin-top: 10px;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-column: 2/-1;
+  gap: 10px;
+  grid-row: 2 / 3;
+}
+.firstDiv > p {
+  grid-column: 2/-1;
+}
+.ratingReviews {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  grid-column: 2/-1;
+
+  .rating {
+    position: relative;
+    display: flex;
+    margin-left: 20px;
+  }
+  .review {
+    font-size: large;
+  }
+}
+.rating span {
+  display: inline-block;
+  overflow-x: hidden;
+  white-space: nowrap;
+  position: absolute;
+  color: gold;
+}
+
+.priceSame {
+  font-weight: bold;
+}
+.priceSame span {
+  color: green;
+}
+
+.productInfo {
+  color: lightgray;
+  grid-row: 5;
+  grid-column: 1/-1;
+  border-radius: 10px;
+  padding: 0px 3px 10px 5px;
+  background: linear-gradient(to bottom, transparent, black, black);
+
+  .productInfoText {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 50px;
+  }
+
+  .additionButton {
+    display: none;
+  }
+
+  .keyValue {
+    border-top: max(1px, 0.2vh) solid #303030c5;
+    display: flex;
+    padding: 0.3em;
+    gap: 1em;
+
+    .key {
+      background-color: #ffffff12;
+    }
+  }
+  .description {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0.3em;
+  }
+  .description p {
+    margin-top: 4px;
+    border-top: max(1px, 0.2vh) solid #303030c5;
+  }
+}
+.productInfoText {
+  color: black;
+}
+.reviewContainer {
+  grid-row: 8;
+  grid-column: 1/-1;
+}
+
+@media only screen and (max-width: 650px) {
+  .product {
+    border: none;
+
+    .imgContainer {
+      grid-column: 1/-1;
+    }
+
+    .productFeature {
+      grid-column: 1/-1;
+      padding-left: 0.5em;
+    }
+  }
+
+  .product > .productInfo,
+  .keyValue {
+    .key {
+      width: 40%;
+      min-width: 40%;
+    }
+  }
+}
+@media only screen and (min-width: 480px) {
+  .productInfo {
+    grid-column: 1/-1;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .productInfoText {
+      font-size: larger;
+      margin-bottom: 30px;
+    }
+
+    .keyValue {
+      .key {
+        width: max(300px, 32vh);
+        font-size: max(16px, 1.7vh);
+        min-width: max(300px, 32vh);
+      }
+
+      .value {
+        font-size: max(14px, 1.5vh);
+      }
+    }
+  }
+  .additionLabel {
+    display: none;
+  }
+
+  .relatedProducts a {
+    .charges span {
+      margin-bottom: 3px;
+    }
+  }
+
+  .product > .productInfo {
+    .additionDiv {
+      color: red;
+      max-height: 400px;
+    }
+
+    .additionDiv:hover {
+      max-height: 800px;
+    }
+
+    .description {
+      order: 5;
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .section {
+    font-size: 15px;
+  }
+  .section > h1 {
+    font-size: 18px;
+  }
+  .firstDiv {
+    grid-column: 1/-1;
+    grid-row: 5;
+  }
+  .ratingReviews {
+    justify-content: space-between;
+  }
+  .productInfo {
+    grid-row: 8;
+    grid-column: 1/-1;
+  }
+  .reviewContainer {
+    grid-row: 11;
+    grid-column: 1/-1;
+  }
+  .additionDiv {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    transition: all 1s ease-in-out;
+  }
+
+  .additionDiv::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nonKey {
+    font-size: 0.9em;
+  }
+
+  .additionDiv {
+    max-height: 0px;
+  }
+
+  .additionLabel {
+    display: block;
+    width: fit-content;
+    text-align: end;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-top: 20px;
+    font-style: italic;
+    position: relative;
+  }
+
+  .additionLabel::after {
+    content: "";
+    height: 1.5px;
+    background-color: green;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    right: 0%;
+    transition: all ease-in-out 1s;
+  }
+
+  .additionButton:checked ~ .additionDiv {
+    max-height: 800px;
+    margin-top: 20px;
+  }
+
+  .additionButton:checked ~ .additionLabel::after {
+    width: 95svw;
+    background-color: rgb(134 134 134);
+  }
+  .productInfoText {
+    margin-bottom: 30px;
+    font-size: large;
+  }
+
+  /* .additionLabel {
+    color: white;
+  } */
+}

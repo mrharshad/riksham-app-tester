@@ -1,7 +1,16 @@
-import React from "react";
+"use client";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-const page = () => {
-  return <div> Account Close page coming soon</div>;
-};
+export default function Close({ searchParams }) {
+  const router = useRouter();
+  const { fName, lName, mobileNo } = searchParams;
+  const data = useSelector((data) => data.user).data;
+  const [load, setLoad] = useState();
+  // useEffect(() => {
+  //   setLoad(true);
+  // }, []);
 
-export default page;
+  return <h3>Close Your Account</h3>;
+}

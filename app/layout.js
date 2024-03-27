@@ -39,7 +39,6 @@ export default async function RootLayout({ children }) {
     }
   }
   const connectIn = value ? "login" : "sign-up";
-
   return (
     <html lang="en">
       <body>

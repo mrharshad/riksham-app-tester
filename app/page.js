@@ -6,7 +6,7 @@ import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchKeyProduct, fetchRandom } from "./redux/slice/activity";
-import { newPage, pageKeyChange, position } from "./redux/slice/pageHistory";
+import { visitPage, pageKeyChange } from "./redux/slice/pageHistory";
 
 // import ServerSidePagination from "./Layouts/serverSidePagination";
 // import dynamic from "next/dynamic";
@@ -17,18 +17,20 @@ import { newPage, pageKeyChange, position } from "./redux/slice/pageHistory";
 
 export default function Home({ searchParams }) {
   const dispatch = useDispatch();
-  console.log("home page render");
   const [skeleton, setSkeleton] = useState([]);
 
-  const { home, singlePro, scrollFetching, current } = useSelector(
-    (data) => data.pageHistory
-  );
+  const {
+    active,
+    home = {},
+    singlePro,
+    scrollFetching,
+  } = useSelector((data) => data.pageHistory);
   const { scrolled } = home || {};
 
   const { data, device, token } = useSelector((data) => data.user);
   const { intTofP, products, loadingA, searchPro, searchSort, search, page } =
     useSelector((data) => data.activity);
-
+  console.log("products", products);
   const totalSearchPro = searchPro.length;
   const isMobile = device === "Mobile";
 
@@ -42,9 +44,12 @@ export default function Home({ searchParams }) {
       })
     );
   };
-
+  const convertedURL = (text) => {
+    return text.replace(/ /g, "-");
+    // .replace(/[^\w-]+/g, "");
+  };
   useEffect(() => {
-    if (current === "home" && !keyName && page && !totalSearchPro) {
+    if (active == "home" && !keyName && page && !totalSearchPro) {
       fetchRandomData();
     }
   }, [scrollFetching]);
@@ -52,7 +57,7 @@ export default function Home({ searchParams }) {
   useEffect(() => {
     if (
       page &&
-      ((keyName && keyPage && current === "home") ||
+      ((keyName && keyPage && active == "home") ||
         (keyName && keyPage && !totalSearchPro))
     ) {
       dispatch(
@@ -69,31 +74,20 @@ export default function Home({ searchParams }) {
   useEffect(() => {
     const { scrollTo } = window;
     if (scrolled >= 0) {
-      console.log("scrolled >= 0", scrolled);
+      dispatch(visitPage({ active: "home" }));
       scrollTo({
         top: scrolled,
         left: 0,
         behavior: "smooth",
       });
     } else {
-      dispatch(newPage("home"));
-      console.log("run run 1", home);
+      dispatch(
+        visitPage({ name: "home", value: { scrolled: 0 }, active: "home" })
+      );
       if (!keyName) {
         fetchRandomData();
       }
     }
-    dispatch(pageKeyChange({ name: "current", value: "home" }));
-    // setFirst(true);
-    // const scrollHandler = () => {
-    //   dispatch(
-    //     position({
-    //       name: "home",
-    //       current: window.scrollY,
-    //     })
-    //   );
-    // };
-
-    // addEventListener("scroll", scrollHandler);
 
     const demo = [];
     let loop = !isMobile ? 28 : 5;
@@ -101,30 +95,33 @@ export default function Home({ searchParams }) {
       demo.push(i);
     }
     setSkeleton(demo);
-    // const observer = new IntersectionObserver(
-    //   (entries) => {
-    //     entries.forEach((entry) => {
-    //       if (entry.isIntersecting) {
-    //         setScrollFetching(Math.floor(Math.random() * 1000));
-    //       }
-    //     });
-    //   },
-    //   {
-    //     // root: document.querySelector("nav"),
-    //     // rootMargin: "100px",
-    //     // threshold: 0,
-    //   }
-    // );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            dispatch(
+              pageKeyChange({
+                name: "scrollFetching",
+                value: Math.floor(Math.random() * 1000),
+              })
+            );
+          }
+        });
+      },
+      {
+        // root: document.querySelector("nav"),
+        // rootMargin: "100px",
+        // threshold: 0,
+      }
+    );
 
-    // const items = document.querySelector(`#loading`);
-    // console.log("run run 2", items);
-    // observer.observe(items);
-    // dispatch(pageKeyChange({ name: "current", value: "home" }));
+    const items = document.querySelector(`#loading`);
+    observer.observe(items);
 
     return () => {
-      // observer.disconnect();
+      observer.disconnect();
       // removeEventListener("scroll", scrollHandler);
-      dispatch(pageKeyChange({ name: "current", value: "other" }));
+      dispatch(visitPage({ active: "other" }));
     };
   }, []);
 
@@ -156,28 +153,25 @@ export default function Home({ searchParams }) {
               const {
                 _id,
                 name,
-                imageSets,
-                dis1,
-                dis2,
-                dis3,
+                des1,
+                des2,
+                des3,
                 rating,
                 nOfB,
-                variantD,
-                variantPD,
                 imageSetD,
                 imgSetPD,
                 variants,
                 thumbnail,
               } = product;
-              const { options } = variants[0];
-              const { current, mrp } = options[0];
-              const discount = ((mrp - current) / mrp) * 100;
+              const { options, disOpt } = variants[0];
+              const dis = disOpt[0].dis;
+              const mrp = options[0].mrp;
               return (
                 <Link
                   className={styles.single}
                   prefetch={false}
                   key={_id}
-                  href={`/product/?k=${name}`}
+                  href={`/single-p/?_id=${_id}&k=${convertedURL(name)}`}
                 >
                   <div className={styles.ratingReviews}>
                     <p className={styles.review}>Sold: {nOfB || 0}</p>
@@ -203,47 +197,36 @@ export default function Home({ searchParams }) {
 
                   <div className={styles.priceDiv}>
                     <p className={styles.charges}>
-                      <span>Free Shipping</span>
-                      <span>Free Packaging</span>
+                      Free <span>Shipping</span>
                     </p>
 
                     <p className={styles.currentPrice}>
                       <span>₹</span>
-                      {current?.toLocaleString("en-IN")}
+                      {(dis
+                        ? (mrp - mrp * (dis / 100)).toFixed()
+                        : mrp
+                      ).toLocaleString("en-IN")}
                     </p>
-                    {mrp ? (
-                      <Fragment>
+                    {dis && (
+                      <>
                         <p className={styles.mrp}>
-                          M.R.P: ₹<span>{mrp?.toLocaleString("en-IN")}</span>
+                          M.R.P: ₹<span>{mrp.toLocaleString("en-IN")}</span>
                         </p>
-                        <p className={styles.discount}>
-                          {discount.toFixed()}% Off
-                        </p>
-                      </Fragment>
-                    ) : null}
+                        <p className={styles.discount}>{dis}% Off</p>
+                      </>
+                    )}
                   </div>
-
                   <div className={styles.options}>
-                    {(imageSets.length > 1 && !imgSetPD) ||
-                    (variants.length > 1 && !variantPD) ? (
+                    {!imgSetPD && imageSetD ? (
                       <p className={styles.priceSame}>
-                        Price is same for all
-                        <span>
-                          {!variantPD && variantD ? ` ${variantD} ` : null}{" "}
-                        </span>
-                        {!variantPD && variantD && !imgSetPD && imageSetD
-                          ? "&"
-                          : null}
-                        <span>
-                          {!imgSetPD && imageSetD ? ` ${imageSetD} ` : null}
-                        </span>
-                        !
+                        Price of all
+                        <span> {imageSetD}</span> is same
                       </p>
                     ) : (
-                      <p>This is first description</p>
+                      <p>{des1}</p>
                     )}
-                    <p>This is second description</p>
-                    <p>This is third description</p>
+                    <p>{des2}</p>
+                    <p>{des3}</p>
                   </div>
                 </Link>
               );

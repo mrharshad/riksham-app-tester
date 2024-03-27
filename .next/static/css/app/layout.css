@@ -124,8 +124,9 @@ button {
 .toastAndWait_fullSWait__aTWjY {
   position: fixed;
   top: 0px;
+  left: 0px;
   width: 100svw;
-  z-index: 10;
+  z-index: 1;
   height: 100svh;
   display: flex;
   background-color: rgb(0 0 0 / 49%);
@@ -169,8 +170,9 @@ button {
   display: flex;
   width: 100svw;
   position: fixed;
-  top: 85svh;
-  z-index: 15;
+  top: max(-5vh, -50px);
+  z-index: 3;
+  right: 0px;
 }
 .toastAndWait_sos__N6UPe {
   background-color: black;
@@ -197,13 +199,14 @@ button {
 }
 @keyframes toastAndWait_UserAlert__dQaYj {
   0% {
+    transform: translateY(5svh);
   }
   70% {
-    transform: translateY(0svh);
+    transform: translateY(25svh);
   }
 
   100% {
-    transform: translateY(15svh);
+    transform: translateY(max(-5vh, -50px));
   }
 }
 
@@ -599,7 +602,9 @@ button {
     position: relative;
     background-color: black;
   }
-
+  .Header_header__xtXLY nav img {
+    margin-top: 1rem;
+  }
   .Header_header__xtXLY > .Header_sideBarInput__IjSbp:checked ~ nav {
     translate: 0;
   }

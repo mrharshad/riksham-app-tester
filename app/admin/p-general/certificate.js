@@ -55,7 +55,7 @@ const Certificates = ({
       if (!value) {
         throw new Error("please enter certificate image link");
       }
-      const acceptDomain = "https://res.cloudinary.com/duxuhsx8x/image/upload/";
+      const acceptDomain = "https://res.cloudinary.com/ddprxcrmx/image/upload/";
 
       const newImgDomain = value.slice(0, acceptDomain.length);
 

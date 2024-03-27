@@ -50,7 +50,12 @@ export async function POST(req) {
         },
       },
       Badminton: {
-        tOfPS: ["Bat", "Ball", "Stump", "Gloves"],
+        tOfPS: [
+          "Badminton Bat",
+          "Badminton Ball",
+          "Badminton Racket",
+          "Badminton Gloves",
+        ],
         brands: ["Adidas", "Puma"],
         keyValueD: {
           common: ["Material", "Net Quantity", "Age range"],

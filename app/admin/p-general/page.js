@@ -13,7 +13,6 @@ export const generateMetadata = () => {
 const NewProduct = () => {
   const cookieStore = cookies();
   const value = cookieStore.get(process.env.COOKIE_TOKEN_NAME)?.value;
-
   const productInventoryManager = verifyRole(value, "p-general");
   if (!value || !productInventoryManager) {
     notFound();
